@@ -1,13 +1,13 @@
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113315813-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
 	<script>
 		if (document.location.hostname != 'localhost') {
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
-			gtag('config', 'UA-113315813-1');
+			gtag('config', '{{ site.googleanalytics }}');
 		}
 	</script>
 
@@ -28,7 +28,7 @@
 	<meta property="og:url"           content="{{ site.url }}" />
 	<meta property="og:description"   content="{{ site.description }}" />
 	<meta property="og:site_name"     content="{{ site.title }}" />
-	<meta property="fb:app_id"        content="323143574923402" />
+	<meta property="fb:app_id"        content="{{ site.fbappid }}" />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
