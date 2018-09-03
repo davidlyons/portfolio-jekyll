@@ -1,5 +1,5 @@
 # Portfolio Site
 
-![screenshot](thumbnail.png)
+![screenshot](thumb.png)
 
 Started with [github.com/davidlyons/gruntjekyll](https://github.com/davidlyons/gruntjekyll).
