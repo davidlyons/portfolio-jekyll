@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":"AAAA,CAAC;AACD,OAAO,CAAC,GAAG,EAAE,KAAK,CAAC,KAAK","file":"app.js","sourcesContent":["\r\nconsole.log('hello world');"]}

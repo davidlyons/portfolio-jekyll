@@ -1,0 +1,19 @@
+---
+title: Rendering Text in WebVR
+---
+
+<div class="container container-narrow">
+
+	<h2>{{ page.title }}</h2>
+
+	<div class="mb-3">
+		<a href="https://developers.google.com/web/showcase/2017/within" class="btn btn-primary">Article</a>
+		<a href="https://github.com/davidlyons/text-sdf-bitmap" class="btn btn-primary">GitHub</a>
+		<a href="http://davidscottlyons.com/text-sdf-bitmap/" class="btn btn-primary">Example</a>
+	</div>
+
+	<img src="images/text-sdf-bitmap.png" class="img-fluid mb-3" alt="">
+
+	<p>Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. In 2016, I spent some time researching and evaluating different text rendering methods, and found that signed distance field bitmap fonts are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I wrote a convenience wrapper for Matt DesLauriers' npm module. Then in February 2017, I wrote an article that was published on Google's developer blog documenting and explaining how to make and use these fonts.</p>
+
+</div>
