@@ -90,22 +90,51 @@ hr {
 	margin-bottom: 2rem;
 }
 
-.codevember {
 
-	.gifs {
-		a {
-			display: inline-block;
-			margin: 3px;
+.codevember .gifs a {
 
-			img {
-				opacity: 0.8;
-				transition: opacity 200ms;
-			}
+	position: relative;
+	display: inline-block;
+	margin: 1px;
 
-			&:hover img {
-				opacity: 1;
-			}
-		}
+	color: #fff;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 700;
+	font-size: 25px;
+	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+
+	img {
+		display: block;
+		opacity: 0.8;
+		transition: opacity 200ms;
 	}
 
+	&:hover img {
+		opacity: 1;
+	}
+
+	.table-overlay {
+		opacity: 0.3;
+		transition: opacity 200ms;
+	}
+
+	&:hover .table-overlay {
+		opacity: 1;
+	}
+
+}
+
+.table-overlay {
+	position: absolute;
+	display: table;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 200px;
+
+	& >.table-cell {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
 }
