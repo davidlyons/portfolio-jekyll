@@ -1,6 +1,6 @@
 (function() {
 
-	
+	console.log('hello');
 
 })();
 
