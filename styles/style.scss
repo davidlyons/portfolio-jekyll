@@ -11,6 +11,8 @@ html {
 body {
 	overflow-y: scroll;
 
+	overflow-x: hidden;
+
 	// fix for magnific pop up pushing body to the left
 	&.lightbox {
 		overflow-y: auto;
@@ -37,6 +39,16 @@ header {
 	}
 }
 
+#three-bg {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+
+#three-top {
+	position: relative;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: 'Rubik', sans-serif;
@@ -56,7 +68,7 @@ a {
 }
 
 #social a {
-	color: #e0e0e0;
+	color: #dddddd;
 	font-weight: normal;
 
 	&:hover {
