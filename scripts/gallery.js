@@ -21,6 +21,14 @@
 					src: 'https://sketchfab.com/models/%id%/embed' // URL that will be set as source for iframe
 				}
 			}
+		},
+		callbacks: {
+			open: function() {
+				$('body').addClass('lightbox');
+			},
+			close: function() {
+				$('body').removeClass('lightbox');
+			}
 		}
 	};
 

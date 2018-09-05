@@ -10,6 +10,11 @@ html {
 
 body {
 	overflow-y: scroll;
+
+	// fix for magnific pop up pushing body to the left
+	&.lightbox {
+		overflow-y: auto;
+	}
 }
 
 header {
