@@ -1,5 +1,6 @@
 ---
 title: Sound Pyramid
+gallery: true
 ---
 
 <div class="container container-narrow">
@@ -10,8 +11,25 @@ title: Sound Pyramid
 		<a href="{{ "/pyramid" | absolute_url }}" class="btn btn-primary">Launch Project</a>
 	</div>
 
-	<img src="images/pyramid.png" class="img-fluid mb-3" style="border: 1px solid #aaa;" alt="">
+	<div class="embed-responsive embed-responsive-16by9 mb-3">
+		<iframe class="embed-responsive-item" src="{{ "/pyramid" | absolute_url }}" style="background: #ddd;"></iframe>
+	</div>
 
-	<p>In 2010, I used a pyramid speaker concept drawing by Melody Neumann to make an interactive 2D Flash version of the pyramid with vectors I made in Illustrator and sound files I made in Guitar Pro and Reason. Clicking each speaker played a different sound file. In 2013, I modeled a 3D version of the pyramid in Maya, and made a 3D version of the Flash app with Three.js. This was one of my first Three.js toys.</p>
+	<p>In 2010, while I was still in school, before knew about Three.js, I modeled a 3D pyramid speaker based on a concept drawing by Melody Neumann. I used Maya's vector renderer to render a 2D vector of one angle the 3D model, and then brought the vectors into Flash to make the speakers interactive. Clicking each speaker played a different sound file I made in Guitar Pro and Reason.</p>
+
+	<p>In 2013, I made a 3D version of the Flash app with Three.js. This was one of my first Three.js experiments.</p>
+
+	<div class="row gallery">
+		<div class="col-sm-6">
+			<a href="images/pyramid.jpg" title="Three.js Pyramid">
+				<img src="images/pyramid.jpg" class="img-fluid mb-3" style="border: 1px solid #aaa;" alt="Three.js Pyramid">
+			</a>
+		</div>
+		<div class="col-sm-6">
+			<a href="images/pyramid-flash.jpg" title="Maya Vector Render Flash Pyramid">
+				<img src="images/pyramid-flash.jpg" class="img-fluid mb-3" style="border: 1px solid #aaa;" alt="Three.js Pyramid">
+			</a>
+		</div>
+	</div>
 
 </div>

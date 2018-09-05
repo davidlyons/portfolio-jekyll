@@ -1,5 +1,6 @@
 ---
 title: Under Neon Lights
+gallery: true
 ---
 
 <div class="container container-narrow">
@@ -9,28 +10,44 @@ title: Under Neon Lights
 	<div class= "mb-3">
 		<a href="https://with.in/neon" class="btn btn-primary">Launch Project</a>
 		<a href="https://github.com/within-unlimited/under-neon-lights" class="btn btn-primary">GitHub</a>
+		<a href="https://within-unlimited.github.io/under-neon-lights/" class="btn btn-primary">Frame.js</a>
 	</div>
 
-	<div class="row">
-		<div class="col">
-			<img src="images/neon-lights.png" class="img-fluid mb-3" alt="">
-		</div>
+	<div class="embed-responsive embed-responsive-16by9 mb-3">
+		<iframe class="embed-responsive-item" src="//player.with.in/embed/?id=541" style="background: #ddd;" allowfullscreen></iframe>
 	</div>
 
 	<p>Under Neon Lights is a an interactive WebVR music experience set to The Chemical Brothers' track under the same name featuring St. Vincent. It is a psychological coming-of-age experience that guides a young girl from her suburban home through the city as she navigates three distinct stages of her life.</p>
 
-	<p>I worked on this project with a team at <a href="https://www.with.in/watch/under-neon-lights">WITHIN</a> at the beginning of 2017. I was responsible for adding WebVR support, assembling the intro scene and start button UI, and animating the girl's face. The bulk of the project was assembled using <a href="https://github.com/mrdoob/frame.js/">Frame.js</a>. It was also a part of Google's <a href="https://experiments.withgoogle.com/under-neon-lights">WebVR Experiments</a>. Check out Jono Brandel's <a href="https://works.jonobr1.com/Under-Neon-Lights">write up</a> as well.</p>
+	<p>I worked on this project with a team at <a href="https://www.with.in/watch/under-neon-lights">WITHIN</a> at the beginning of 2017. I was responsible for adding WebVR support, assembling the intro scene and start button UI, and animating the girl's face. The bulk of the project was assembled using <a href="https://github.com/mrdoob/frame.js/">Frame.js</a>, a web editor that is similar to Premiere, but with code sequences instead of video sequences. Under Neon Lights was also a part of Google's <a href="https://experiments.withgoogle.com/under-neon-lights">WebVR Experiments</a>, so the team open sourced the working files on <a href="https://github.com/within-unlimited/under-neon-lights">GitHub</a>. Check out Jono Brandel's <a href="https://works.jonobr1.com/Under-Neon-Lights">write up</a> as well.</p>
 
-	<div class="row">
-		<div class="col">
-			<img src="images/lip-sync.gif" class="img-fluid mb-3" alt="">
+	<div class="row gallery">
+		<div class="col-sm-6">
+			<a href="images/neon-lights.png" title="intro scene">
+				<img src="images/neon-lights.png" class="img-fluid mb-3" alt="intro scene">
+			</a>
 		</div>
-		<div class="col">
-			<img src="images/mouth-sprite.png" class="img-fluid mb-3" style="border: 1px solid #aaa;" alt="">
+		<div class="col-sm-6">
+			<a href="images/framejs.png" title="Frame.js editor">
+				<img src="images/framejs.png" class="img-fluid mb-3" alt="Frame.js editor">
+			</a>
 		</div>
-		<div class="col"></div>
 	</div>
 
 	<p>In March 2017, I animated the eyes blinking and mouth lip syncing to the lyrics of the song using three planes parented to the head bone and a sprite sheet texture map, sliding the UV offset around on the sprite sheet. <a href="https://medium.com/@gordonnl/links-expressions-eb7beae2c62c">Windwaker Link</a> was both a technical and visual inspiration and reference for the face.</p>
+
+	<div class="row gallery">
+		<div class="col-sm-4">
+			<a href="images/lip-sync.gif" title="lip sync animation">
+				<img src="images/lip-sync.gif" class="img-fluid mb-3" alt="lip sync">
+			</a>
+		</div>
+		<div class="col-sm-4">
+			<a href="images/mouth-sprite.png" class="sprite for facial animation">
+				<img src="images/mouth-sprite.png" class="img-fluid mb-3" style="border: 1px solid #aaa;" alt="sprite">
+			</a>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
 
 </div>
