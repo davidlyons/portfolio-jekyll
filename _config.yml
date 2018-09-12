@@ -50,3 +50,4 @@ exclude:
   - readme.md
   - Gruntfile.js
   - package.json
+  - "*.psd"
