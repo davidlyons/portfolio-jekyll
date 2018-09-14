@@ -16,6 +16,49 @@ title: Rendering Text in WebVR
 		<img src="images/text-sdf-bitmap.png" class="img-fluid mb-3" alt="SDF Bitmap Text example">
 	</a>
 
-	<p>Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. In 2016, I spent some time researching and evaluating different text rendering methods, and found that signed distance field bitmap fonts are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I wrote a convenience wrapper for Matt DesLauriers' <a href="https://mattdesl.svbtle.com/material-design-on-the-gpu">three-bmfont-text</a> that removes the Node and .fnt file dependencies. Then in February 2017, I wrote an <a href="https://developers.google.com/web/showcase/2017/within">article</a> that was published on Google's developer blog documenting and explaining how to make and use these fonts.</p>
+	<p>In 2016, I needed to figure out how to render text in WebVR for <a href="{{ "/projects/within" | relative_url }}">WITHIN's WebVR site</a>. Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. I spent some time researching and evaluating different text rendering methods, and found that signed distance field bitmap fonts are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I <a href="http://browserify.org/">browserified</a> Matt DesLauriers' <a href="https://mattdesl.svbtle.com/material-design-on-the-gpu">three-bmfont-text</a> to remove the Node and .fnt file dependencies, then wrote a convenience wrapper for it. In February 2017, I wrote an <a href="https://developers.google.com/web/showcase/2017/within">article</a> that was published on Google's developer blog documenting and explaining how to generate a bitmap font with <a href="https://github.com/libgdx/libgdx/wiki/Hiero">Hiero</a> and how to use the font in Three.js. My <a href="http://davidscottlyons.com/text-sdf-bitmap/">example</a> on <a href="https://github.com/davidlyons/text-sdf-bitmap">GitHub</a> demonstrates the typography capabilities with the dat.gui sliders and includes a bitmap version of <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> that you can use in your own projects.</p>
+
+{% highlight html %}
+<script src="three-bmfont-text-bundle.js"></script>
+<script src="sdf-shader.js"></script>
+<script src="text-bitmap.js"></script>
+{% endhighlight %}
+
+{% highlight javascript %}
+var fileLoader = new THREE.FileLoader();
+var textureLoader = new THREE.TextureLoader();
+
+var fileName = './fonts/roboto/bitmap/roboto-bold';
+
+var fontTexture = textureLoader.load( fileName + '.png', function(){
+	fontTexture.needsUpdate = true;
+	fontTexture.minFilter = THREE.LinearMipMapLinearFilter;
+	fontTexture.magFilter = THREE.LinearFilter;
+	fontTexture.generateMipmaps = true;
+	fontTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+});
+
+fileLoader.load( fileName + '.json', function( font ){
+
+	font = JSON.parse( font );
+	var bmtext = new TextBitmap({
+		text: 'Grumpy wizards make toxic brew for the evil Queen and Jack.',
+		font: font,
+		texture: fontTexture,
+		width: 1000,
+		align: 'center',
+		valign: 'center',
+		lineHeight: font.common.lineHeight - 20,
+		letterSpacing: 1,
+		scale: 0.0004,
+		color: '#fff',
+		outlineColor: '#000'
+	});
+
+	bmtext.position.set( 0, 1, -0.5 );
+	scene.add( bmtext );
+
+});
+{% endhighlight %}
 
 </div>

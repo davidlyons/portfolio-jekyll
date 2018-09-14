@@ -1,4 +1,7 @@
 
+// @import 'pygments/github';
+@import 'pygments/base16-eighties-dark';
+
 * {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -154,4 +157,14 @@ hr {
 		vertical-align: middle;
 		text-align: center;
 	}
+}
+
+.highlight {
+	padding: 20px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+
+pre {
+	margin-bottom: 0;
 }
