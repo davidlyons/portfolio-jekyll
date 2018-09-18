@@ -18,12 +18,14 @@ title: Rendering Text in WebVR
 
 	<p>In 2016, I needed to figure out how to render text in WebVR for <a href="{{ "/projects/within" | relative_url }}">WITHIN's WebVR site</a>. Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. I spent some time researching and evaluating different text rendering methods, and found that <a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts">signed distance field bitmap fonts</a> are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I created a bitmap font with <a href="https://github.com/libgdx/libgdx/wiki/Hiero">Hiero</a> (.fnt and .png), <a href="http://browserify.org/">browserified</a> Matt DesLauriers' <a href="https://github.com/Jam3/three-bmfont-text">three-bmfont-text</a> and converted my .fnt files to .json to remove the load-bmfont and Node dependencies, then wrote a convenience wrapper to handle the creation of text objects with the .png and .json assets:</p>
 
-	<div class="row">
+	<div class="row mt-4 mb-3">
 		<div class="col-sm-6">
-			<img src="images/roboto-bold-bitmap.png" class="img-fluid" alt="Roboto Bitmap PNG">
+			<img src="images/roboto-bold-bitmap.png" class="img-fluid" style="border: 1px solid #aaa;" alt="Roboto Bitmap PNG">
+			<p><small>roboto-bold.png</small></p>
 		</div>
 		<div class="col-sm-6">
 			<img src="images/roboto-bold-json.png" class="img-fluid" alt="Roboto Bitmap JSON">
+			<p><small>roboto-bold.json</small></p>
 		</div>
 	</div>
 
