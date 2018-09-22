@@ -16,7 +16,9 @@ title: Rendering Text in WebVR
 		<img src="images/text-sdf-bitmap.png" class="img-fluid mb-3" alt="SDF Bitmap Text example">
 	</a>
 
-	<p>In 2016, I needed to figure out how to render text in WebVR for <a href="{{ "/projects/within" | relative_url }}">WITHIN's WebVR site</a>. Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. I spent some time researching and evaluating different text rendering methods, and found that <a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts">signed distance field bitmap fonts</a> are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I created a bitmap font with <a href="https://github.com/libgdx/libgdx/wiki/Hiero">Hiero</a> (.fnt and .png), <a href="http://browserify.org/">browserified</a> Matt DesLauriers' <a href="https://github.com/Jam3/three-bmfont-text">three-bmfont-text</a> and converted my .fnt files to .json to remove the load-bmfont and Node dependencies, then wrote a convenience wrapper to handle the creation of text objects with the .png and .json assets:</p>
+	<p>The purpose of this <a href="https://github.com/davidlyons/text-sdf-bitmap">GitHub repo</a> is to make it as easy as possible to add arbitrary text to new Three.js WebVR projects. This involves either using the included Roboto font, or converting another licensed font to the same format (.png + .json) for use in Three.js.</p>
+
+	<p>In 2016, I needed to figure out how to render text in WebVR for <a href="{{ "/projects/within" | relative_url }}">WITHIN's WebVR site</a>. Because WebVR relies on a canvas element, text rendering must be done in canvas, in the 3D scene. I spent some time researching and evaluating different text rendering methods, and found that <a href="https://github.com/libgdx/libgdx/wiki/Distance-field-fonts">signed distance field bitmap fonts</a> are the most effective and efficient way to render arbitrary blocks of text in WebVR. So I created a bitmap font with <a href="https://github.com/libgdx/libgdx/wiki/Hiero">Hiero</a> (.fnt and .png), <a href="http://browserify.org/">browserified</a> Matt DesLauriers' <a href="https://github.com/Jam3/three-bmfont-text">three-bmfont-text</a> and converted my .fnt files to .json to remove the load-bmfont and Node dependencies, then wrote a convenience wrapper class to handle the creation of text objects with the .png and .json assets:</p>
 
 	<div class="row mt-4 mb-3">
 		<div class="col-sm-6">
@@ -29,7 +31,9 @@ title: Rendering Text in WebVR
 		</div>
 	</div>
 
-	<p>In February 2017, I wrote an <a href="https://developers.google.com/web/showcase/2017/within">article</a> that was published on Google's developer blog documenting and explaining how to generate a bitmap font with Hiero and how to use the font in Three.js with my wrapper. My <a href="http://davidscottlyons.com/text-sdf-bitmap/">example</a> on <a href="https://github.com/davidlyons/text-sdf-bitmap">GitHub</a> demonstrates the typography capabilities of <a href="https://github.com/Jam3/layout-bmfont-text">layout-bmfont-text</a> with the dat.gui sliders and includes a bitmap version of <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> that you can use in your own projects. My usage has changed a bit since the Google dev blog article was written.</p>
+	<p>In February 2017, I wrote an <a href="https://developers.google.com/web/showcase/2017/within">article</a> that was published on Google's developer blog documenting and explaining how to generate a bitmap font with Hiero and how to use the font in Three.js with my wrapper class. My <a href="http://davidscottlyons.com/text-sdf-bitmap/">example</a> on <a href="https://github.com/davidlyons/text-sdf-bitmap">GitHub</a> demonstrates the typography capabilities of <a href="https://github.com/Jam3/layout-bmfont-text">layout-bmfont-text</a> with the dat.gui sliders and includes a bitmap version of <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> that you can use in your own projects. My usage has changed a bit since the Google dev blog article was written.</p>
+
+	<hr>
 
 	<h3>Usage</h3>
 
