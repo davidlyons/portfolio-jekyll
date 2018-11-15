@@ -29,16 +29,17 @@ header {
 	border-bottom: 1px solid rgba(0,0,0,.2);
 
 	h1 {
-		font-size: 2rem;
+		font-size: 1.8rem;
 		text-transform: uppercase;
+		margin-bottom: 0;
 	}
 
 	h2 {
 		font-size: 1.2rem;
 	}
 
-	p:last-child {
-		margin-bottom: 0;
+	p {
+		// margin-bottom: 0;
 	}
 }
 
@@ -71,11 +72,11 @@ a {
 }
 
 #social a {
-	color: #dddddd;
+	color: #aaa;
 	font-weight: normal;
 
 	&:hover {
-		color: #aaa;
+		color: #888;
 	}
 }
 
@@ -98,7 +99,7 @@ a {
 }
 
 footer {
-	text-align: center;
+	// text-align: center;
 	color: #aaa;
 	margin-top: 2rem;
 	padding: 20px 0;

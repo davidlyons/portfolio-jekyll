@@ -1,6 +1,18 @@
 
 <footer>
 	<div class="container">
-		<small>&copy; 2018 {{ site.title }}</small>
+		<div class="row">
+			<div class="col-md-6">
+				<small>&copy; 2018 {{ site.title }}</small>
+			</div>
+			<div class="col-md-6 text-right">
+				<p id="social">
+					<a href="https://www.linkedin.com/in/{{ site.linkedin }}" title="LinkedIn"><i class="fab fa-2x fa-linkedin"></i></a>
+					<a href="https://twitter.com/{{ site.twitter }}" title="Twitter"><i class="fab fa-2x fa-twitter"></i></a>
+					<a href="https://github.com/{{ site.github }}" title="GitHub"><i class="fab fa-2x fa-github"></i></a>
+					<a href="https://codepen.io/{{ site.codepen }}" title="Codepen"><i class="fab fa-2x fa-codepen"></i></a>
+				</p>
+			</div>
+		</div>
 	</div>
 </footer>
