@@ -13,7 +13,7 @@
 	renderer.setSize( window.innerWidth, height );
 	container.appendChild( renderer.domElement );
 
-	var camera = new THREE.PerspectiveCamera( 40, window.innerWidth / height, .01, 1000 );
+	var camera = new THREE.PerspectiveCamera( 20, window.innerWidth / height, .01, 1000 );
 	camera.position.set( 0, 0, 1.8 );
 
 	// -----------------------------------------------------------------
@@ -24,6 +24,7 @@
 		wireframe: true
 	});
 	var sphere = new THREE.Mesh( sphereGeo, sphereMat );
+	sphere.position.y = -0.2;
 	scene.add( sphere );
 
 	// -----------------------------------------------------------------
