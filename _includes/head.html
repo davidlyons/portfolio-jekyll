@@ -19,7 +19,7 @@
 
 	<link rel="icon" href="{{ "/favicon-32.png" | relative_url }}">
 
-	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %} | {{ site.title }}</title>
 
 	<!-- Facebook Open Graph Protocol http://ogp.me/ -->
 	<meta property="og:title"         content="{{ site.title }}" />

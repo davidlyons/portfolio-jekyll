@@ -1,14 +1,32 @@
-<header>
+<header class="clearfix">
 	<div class="container">
-		<h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
-		<p>{{ site.description }}</p>
-		<p><i class="far fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-		<p id="social">
-			<a href="https://www.linkedin.com/in/{{ site.linkedin }}" title="LinkedIn"><i class="fab fa-2x fa-linkedin"></i></a>
-			<a href="https://twitter.com/{{ site.twitter }}" title="Twitter"><i class="fab fa-2x fa-twitter"></i></a>
-			<a href="https://github.com/{{ site.github }}" title="GitHub"><i class="fab fa-2x fa-github"></i></a>
-			<a href="https://codepen.io/{{ site.codepen }}" title="Codepen"><i class="fab fa-2x fa-codepen"></i></a>
-			<a href="{{ "/David-Lyons-Resume.pdf" | relative_url }}" title="Resume"><i class="far fa-2x fa-file-alt"></i></a>
-		</p>
+
+		<div id="brand">
+			<h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+			<div>{{ site.description }}</div>
+			<div><i class="far fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+		</div>
+
+		<div id="social">
+			<a href="https://www.linkedin.com/in/{{ site.linkedin }}" title="LinkedIn"><i class="fab fa-lg fa-linkedin"></i></a>
+			<a href="https://twitter.com/{{ site.twitter }}" title="Twitter"><i class="fab fa-lg fa-twitter"></i></a>
+			<a href="https://github.com/{{ site.github }}" title="GitHub"><i class="fab fa-lg fa-github"></i></a>
+			<a href="https://codepen.io/{{ site.codepen }}" title="Codepen"><i class="fab fa-lg fa-codepen"></i></a>
+		</div>
+
+		<nav role="navigation">
+			<ul class="nav justify-content-center">
+				<li class="nav-item">
+					<a class="nav-link {% if page.url == "/" or page.url contains "projects" %}active"{% endif %}" href="{{ "/" | relative_url }}">Work</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {% if page.title == "About" %}active"{% endif %}" href="{{ "/about.html" | relative_url }}">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {% if page.title == "Resume" %}active"{% endif %}" href="{{ "/resume.html" | relative_url }}">Resume</a>
+				</li>
+			</ul>
+		</nav>
+
 	</div>
 </header>
