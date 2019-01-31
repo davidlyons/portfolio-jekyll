@@ -12,8 +12,8 @@ html {
 }
 
 body {
+	line-height: 1.7;
 	overflow-y: scroll;
-
 	overflow-x: hidden;
 
 	// fix for magnific pop up pushing body to the left
@@ -169,38 +169,42 @@ hr {
 }
 
 
-.sketches .gifs a {
+.sketches .gifs {
+	line-height: 1.5;
 
-	position: relative;
-	display: inline-block;
-	margin: 1px;
+	a {
 
-	color: #fff;
-	font-family: 'Rubik', sans-serif;
-	font-weight: 700;
-	font-size: 21px;
-	text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+		position: relative;
+		display: inline-block;
+		margin: 1px;
 
-	img {
-		display: block;
-		opacity: 0.8;
-		transition: opacity 200ms;
-		width: 252px;
+		color: #fff;
+		font-family: 'Rubik', sans-serif;
+		font-weight: 700;
+		font-size: 21px;
+		text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+
+		img {
+			display: block;
+			opacity: 0.8;
+			transition: opacity 200ms;
+			width: 252px;
+		}
+
+		&:hover img {
+			opacity: 1;
+		}
+
+		.table-overlay {
+			opacity: 0.3;
+			transition: opacity 200ms;
+		}
+
+		&:hover .table-overlay {
+			opacity: 1;
+		}
+
 	}
-
-	&:hover img {
-		opacity: 1;
-	}
-
-	.table-overlay {
-		opacity: 0.3;
-		transition: opacity 200ms;
-	}
-
-	&:hover .table-overlay {
-		opacity: 1;
-	}
-
 }
 
 .table-overlay {
