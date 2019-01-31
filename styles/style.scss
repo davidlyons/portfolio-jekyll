@@ -103,6 +103,10 @@ header {
 		color: #aaa;
 		font-weight: normal;
 
+		+ a {
+			margin-left: 6px;
+		}
+
 		&:hover {
 			color: #888;
 		}
