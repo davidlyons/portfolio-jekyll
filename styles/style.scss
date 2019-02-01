@@ -29,13 +29,15 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: 700;
 }
 
+$blue: #0080ff;
+
 a {
-	color: #0080ff;
+	color: $blue;
 	text-decoration: none;
 	transition: color 200ms;
 
 	&:hover {
-		color: #004c98;
+		color: darken($blue, 15%);
 		text-decoration: none;
 	}
 }
@@ -149,7 +151,7 @@ header {
 
 		&:hover {
 			color: #fff;
-			background-color: #007bff;
+			background-color: $blue;
 		}
 	}
 }
