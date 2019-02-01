@@ -15,6 +15,7 @@ body {
 	line-height: 1.7;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	background: #ddd;
 
 	// fix for magnific pop up pushing body to the left
 	&.lightbox {
@@ -39,11 +40,22 @@ a {
 	}
 }
 
+#header-bg {
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+
 header {
+	position: relative;
 	text-align: center;
 	padding: 20px 0 0;
-	margin-bottom: 2rem;
 	border-bottom: 1px solid rgba(0,0,0,.2);
+	background: #fff;
+
+	.container {
+		position: relative;
+	}
 
 	h1 {
 		font-size: 1.8rem;
@@ -84,16 +96,6 @@ header {
 	&.active:hover::after {
 		background-color: rgba(0,0,0,0.4);
 	}
-}
-
-#three-bg {
-	position: absolute;
-	top: 0;
-	overflow: hidden;
-}
-
-#three-top {
-	position: relative;
 }
 
 #social {
@@ -159,10 +161,14 @@ header {
 	}
 }
 
+#content {
+	padding: 2rem 0;
+	background: #fff;
+}
+
 footer {
 	text-align: center;
-	color: #aaa;
-	margin-top: 2rem;
+	color: #999;
 	padding: 20px 0;
 	border-top: 1px solid rgba(0,0,0,.2);
 }

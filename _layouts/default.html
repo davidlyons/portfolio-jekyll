@@ -5,17 +5,15 @@
 
 	<body>
 
-		<div id="three-bg"></div>
+		{% include header.html %}
 
-		<div id="three-top">
-
-			{% include header.html %}
+		<div id="content">
 
 			{{ content }}
 
-			{% include footer.html %}
-
 		</div>
+
+		{% include footer.html %}
 
 		{% include scripts.html %}
 

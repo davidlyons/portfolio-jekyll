@@ -1,12 +1,12 @@
 (function() {
 
-	var container = document.getElementById( 'three-bg' );
+	var container = document.getElementById( 'header-bg' );
 
 	var scene = new THREE.Scene();
 	scene.background = new THREE.Color( 0xffffff );
 
 	var header = document.querySelector('header');
-	var height = header.offsetHeight;
+	var height = header.offsetHeight - 1;
 
 	var renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setPixelRatio( window.devicePixelRatio );
@@ -49,7 +49,7 @@
 
 	window.addEventListener( 'resize', resize, false );
 	function resize() {
-		height = header.offsetHeight;
+		height = header.offsetHeight - 1;
 		camera.aspect = window.innerWidth / height;
 		camera.updateProjectionMatrix();
 		renderer.setSize( window.innerWidth, height );
