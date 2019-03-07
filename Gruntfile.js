@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 				livereload: true
 			},
 			sass: {
-				files: ['styles/*.scss'],
+				files: ['styles/*.scss', 'styles/**/*.scss'],
 				tasks: ['sass', 'jekyll']
 			},
 			scripts: {
