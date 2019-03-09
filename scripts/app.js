@@ -2,8 +2,12 @@
 
 	var container = document.getElementById( 'header-bg' );
 
+	var body = document.querySelector('body');
+	var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
+	var wireColor = body.classList.contains('dark') ? 0x555555 : 0xdddddd;
+
 	var scene = new THREE.Scene();
-	scene.background = new THREE.Color( 0xffffff );
+	scene.background = new THREE.Color( bgColor );
 
 	var header = document.querySelector('header');
 	var height = header.offsetHeight - 1;
@@ -20,7 +24,7 @@
 
 	var sphereGeo = new THREE.SphereBufferGeometry( 2, 12, 12 );
 	var sphereMat = new THREE.MeshBasicMaterial({
-		color: 0xdddddd,
+		color: wireColor,
 		wireframe: true
 	});
 	var sphere = new THREE.Mesh( sphereGeo, sphereMat );

@@ -1,0 +1,79 @@
+body.dark {
+
+	background: #222;
+	color: #ccc;
+
+	$blue: #4aa5ff;
+
+	a {
+		color: $blue;
+
+		&:hover {
+			color: lighten($blue, 15%);
+		}
+	}
+
+	a[class*='btn'] {
+		color: #fff;
+	}
+
+	header {
+		border-bottom-color: rgba(255,255,255,.2);
+		background: #333;
+	}
+
+	.nav-link {
+
+		&::after {
+			background-color: rgba(255,255,255,0.2);
+		}
+
+		&.active:hover::after {
+			background-color: rgba(255,255,255,0.4);
+		}
+	}
+
+	#social {
+		a {
+			color: #666;
+
+			&:hover {
+				color: #888;
+			}
+		}
+	}
+
+	.card {
+		background-color: #444;
+	}
+
+	.home {
+		a.card {
+			&:hover {
+				color: #fff;
+				background-color: $blue;
+			}
+		}
+	}
+
+	#content {
+		background: #333;
+	}
+
+	footer {
+		color: #555;
+		border-top-color: rgba(0,0,0,.2);
+	}
+
+	.highlight {
+		border-color: rgba(0,0,0,0.1);
+	}
+
+	.paintings a {
+		border-color: rgba(255,255,255,0.2);
+
+		&:hover {
+			border-color: rgba(255,255,255,0.5);
+		}
+	}
+}
