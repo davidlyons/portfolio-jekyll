@@ -3,7 +3,7 @@ body.dark {
 	background: #222;
 	color: #ccc;
 
-	$blue: #4aa5ff;
+	$blue: #1ac6ff;
 
 	a {
 		color: $blue;
@@ -35,24 +35,22 @@ body.dark {
 
 	#social {
 		a {
-			color: #666;
+			color: #777;
 
 			&:hover {
-				color: #888;
+				color: #999;
 			}
 		}
 	}
 
 	.card {
-		background-color: #444;
+		background-color: #3a3a3a;
 	}
 
-	.home {
-		a.card {
-			&:hover {
-				color: #fff;
-				background-color: $blue;
-			}
+	a.card {
+		&:hover {
+			color: #fff;
+			background-color: #444;
 		}
 	}
 
