@@ -146,9 +146,12 @@ header {
 	}
 }
 
+a.card {
+	transition: background-color 200ms, color 200ms;
+}
+
 .home {
 	a.card {
-		transition: background-color 200ms;
 		font-weight: bold;
 
 		&:hover {
