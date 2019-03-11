@@ -240,10 +240,15 @@ hr {
 }
 
 .highlight {
+	background: #2a2a2a;
 	line-height: 1.5;
 	padding: 20px;
 	border: 1px solid rgba(0,0,0,0.1);
 	border-radius: 4px;
+
+	::selection {
+		background: #999;
+	}
 }
 
 pre {
