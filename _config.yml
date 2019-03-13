@@ -17,7 +17,7 @@ title: David Lyons
 email: david.scott.lyons@gmail.com
 description: 3D Artist, Front End WebGL/VR Developer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://davidscottlyons.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://davidscottlyons.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 linkedin: davidxlyons
 twitter: davidxlyons
