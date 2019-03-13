@@ -13,7 +13,8 @@ body.dark {
 		}
 	}
 
-	a[class*='btn'] {
+	a[class*='btn'],
+	.sketches .gifs a {
 		color: #fff;
 	}
 
