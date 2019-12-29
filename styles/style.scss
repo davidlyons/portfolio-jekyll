@@ -4,11 +4,6 @@
 
 @import '_dark';
 
-* {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
-
 html {
 	font-size: 0.94rem;
 }
@@ -185,40 +180,53 @@ hr {
 	margin-bottom: 2rem;
 }
 
-
 .sketches .gifs {
 	line-height: 1.5;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1px;
+
+	@media (min-width: 576px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	@media (min-width: 992px) {
+		grid-template-columns: repeat(8, 1fr);
+	}
 
 	a {
 
 		position: relative;
-		display: inline-block;
-		margin: 1px;
-
 		color: #fff;
 		font-family: 'Rubik', sans-serif;
 		font-weight: 700;
 		font-size: 21px;
+		line-height: 1;
 		text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
 
 		img {
-			display: block;
-			opacity: 0.8;
+			width: 100%;
+			opacity: 0.6;
 			transition: opacity 200ms;
-			width: 252px;
-		}
-
-		&:hover img {
-			opacity: 1;
 		}
 
 		.table-overlay {
-			opacity: 0.3;
+			opacity: 0.5;
 			transition: opacity 200ms;
 		}
 
-		&:hover .table-overlay {
-			opacity: 1;
+		&:hover {
+			img {
+				opacity: 0.8;
+			}
+
+			.table-overlay {
+				opacity: 1;
+			}
 		}
 
 	}
@@ -230,12 +238,14 @@ hr {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 144px;
+	height: 100%;
 
-	& >.table-cell {
+	& > .table-cell {
 		display: table-cell;
+		height: 100%;
 		vertical-align: middle;
 		text-align: center;
+		padding: 10px;
 	}
 }
 
@@ -275,7 +285,7 @@ pre {
 
 .thumbnails a {
 	display: inline-block;
-	border: 5px solid rgba(0,0,0,0.2);
+	border: 3px solid rgba(0,0,0,0.2);
 	transition: border-color 200ms;
 
 	&:hover {
