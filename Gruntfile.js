@@ -71,7 +71,8 @@ module.exports = function(grunt) {
 			jekyll: {
 				files: [
 					'**/*.{html,yml,md,mkd,markdown}',
-					'!_site/**/*'
+					'!_site/**/*',
+					'!node_modules/**/*'
 				],
 				tasks: ['jekyll']
 			}

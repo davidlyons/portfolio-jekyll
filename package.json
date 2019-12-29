@@ -4,13 +4,13 @@
   "repository": "github:davidlyons/davidlyons.github.io",
   "license": "Artistic-2.0",
   "devDependencies": {
-    "grunt": "~1.0.1",
+    "grunt": "^1.0.4",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "~2.0.0",
+    "grunt-contrib-connect": "~2.1.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "~4.0.0",
+    "grunt-contrib-uglify": "~4.0.1",
     "grunt-contrib-watch": "~1.1.0",
-    "grunt-jekyll": "^1.0.0",
-    "load-grunt-tasks": "~4.0.0"
+    "grunt-jekyll": "^1.0.1",
+    "load-grunt-tasks": "~5.1.0"
   }
 }
