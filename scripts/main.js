@@ -4,7 +4,7 @@
 
 	var body = document.querySelector('body');
 	var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
-	var wireColor = body.classList.contains('dark') ? 0x555555 : 0xdddddd;
+	var wireColor = body.classList.contains('dark') ? 0x444444 : 0xdddddd;
 
 	var scene = new THREE.Scene();
 	scene.background = new THREE.Color( bgColor );
@@ -22,11 +22,21 @@
 
 	// -----------------------------------------------------------------
 
-	var sphereGeo = new THREE.SphereBufferGeometry( 2, 12, 12 );
-	var sphereMat = new THREE.MeshBasicMaterial({
+	var textureLoader = new THREE.TextureLoader();
+
+	var sphereGeo = new THREE.SphereBufferGeometry( 2, 32, 32 );
+
+	var sphereMat = window.sphereMat = new THREE.MeshBasicMaterial({
 		color: wireColor,
-		wireframe: true
+		alphaMap: textureLoader.load('/header-bg.png'),
+		side: THREE.BackSide,
+		transparent: true,
+		opacity: 0.5
 	});
+
+	sphereMat.alphaMap.repeat.set( 24, 12 );
+	sphereMat.alphaMap.wrapS = sphereMat.alphaMap.wrapT = THREE.RepeatWrapping;
+
 	var sphere = new THREE.Mesh( sphereGeo, sphereMat );
 	sphere.position.y = -0.2;
 	scene.add( sphere );
