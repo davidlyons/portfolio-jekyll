@@ -194,10 +194,6 @@ hr {
 		grid-template-columns: repeat(6, 1fr);
 	}
 
-	@media (min-width: 992px) {
-		grid-template-columns: repeat(7, 1fr);
-	}
-
 	a {
 
 		position: relative;
