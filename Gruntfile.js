@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'scripts/main.js'
+					'scripts/main-grid.js'
 				],
 				dest: 'scripts/app.js',
 			},
