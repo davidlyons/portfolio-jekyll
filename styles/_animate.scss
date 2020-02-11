@@ -3,7 +3,7 @@
   animation-fill-mode: both;
 }
 
-@for $i from 1 through 8 {
+@for $i from 1 through 7 {
 	.animated.delay-#{$i} {
 		animation-delay: #{$i * 100}ms;
 	}
