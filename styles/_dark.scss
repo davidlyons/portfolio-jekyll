@@ -55,6 +55,15 @@ body.dark {
 		}
 	}
 
+	.home {
+		a.card {
+			transition: background-color 200ms, color 200ms, box-shadow 200ms;
+			&:hover {
+				box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+			}
+		}
+	}
+
 	#content {
 		background: #2f2f2f;
 	}
