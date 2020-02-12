@@ -1,0 +1,26 @@
+// magnific popup overrides for font awesome arrow icons
+
+.mfp-chevron {
+	color: #fff;
+	text-shadow: 0 2px 10px rgba(0,0,0,0.8),
+							-1px -1px 1px rgba(0,0,0,0.5),
+							1px -1px 1px rgba(0,0,0,0.5),
+							-1px 1px 1px rgba(0,0,0,0.5),
+							1px 1px 1px rgba(0,0,0,0.5);
+
+	&:before,
+	&:after {
+		content: none;
+	}
+
+	&.mfp-arrow-left .fas {
+		transform: scaleX(-1);
+	}
+}
+
+@media all and (max-width: 900px) {
+	.mfp-arrow-left {
+		-webkit-transform-origin: 0;
+		transform-origin: 0;
+	}
+}

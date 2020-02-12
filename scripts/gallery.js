@@ -10,7 +10,8 @@
 		gallery: {
 			enabled: true,
 			preload: [0,1], // Will preload 0 - before current, and 1 after the current image
-			navigateByImgClick: true
+			navigateByImgClick: true,
+			arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir% mfp-chevron"><i class="fas fa-chevron-right fa-3x mfp-prevent-close"></i></button>'
 		},
 		//http://dimsemenov.com/plugins/magnific-popup/documentation.html#iframe-type
 		iframe: {
