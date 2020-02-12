@@ -1,6 +1,6 @@
 (function() {
 
-	var container = document.getElementById( 'header-bg' );
+	const container = document.getElementById( 'header-bg' );
 
 	var body = document.querySelector('body');
 	var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
@@ -27,30 +27,28 @@
 		uniforms: {
 			offset: { type: 'f', value: 3.0 },
 			color: { type: 'v3', value: new THREE.Color( wireColor ) },
-			alpha: { type: 'f', value: 0.7 }
+			alpha: { type: 'f', value: 0.8 }
 		},
 
-		vertexShader: [
+		vertexShader: /* glsl */ `
 
-			"uniform float offset;",
+			uniform float offset;
 
-			"void main() {",
-			"  vec4 pos = modelViewMatrix * vec4( position + normal * offset, 1.0 );",
-			"  gl_Position = projectionMatrix * pos;",
-			"}"
+			void main() {
+				vec4 pos = modelViewMatrix * vec4( position + normal * offset, 1.0 );
+				gl_Position = projectionMatrix * pos;
+			}
+		`,
 
-		].join('\n'),
+		fragmentShader: /* glsl */ `
 
-		fragmentShader: [
+			uniform vec3 color;
+			uniform float alpha;
 
-			"uniform vec3 color;",
-			"uniform float alpha;",
-
-			"void main() {",
-			"  gl_FragColor = vec4( color, alpha );",
-			"}"
-
-		].join('\n')
+			void main() {
+				gl_FragColor = vec4( color, alpha );
+			}
+		`
 
 	};
 
@@ -76,15 +74,15 @@
 			ygrid = 9,
 			zgrid = 10;
 
-	for ( i = 0; i < xgrid; i ++ ) {
-		for ( j = 0; j < ygrid; j ++ ) {
-			for ( k = 0; k < zgrid; k ++ ) {
+	for ( let i = 0; i < xgrid; i ++ ) {
+		for ( let j = 0; j < ygrid; j ++ ) {
+			for ( let k = 0; k < zgrid; k ++ ) {
 
 				var mesh = new THREE.Mesh( sphereGeo, sphereMat );
 
-				x = 200 * ( i - xgrid / 2 );
-				y = 200 * ( j - ygrid / 2 );
-				z = 200 * ( k - zgrid / 2 );
+				const x = 200 * ( i - xgrid / 2 );
+				const y = 200 * ( j - ygrid / 2 );
+				const z = 200 * ( k - zgrid / 2 );
 
 				mesh.position.set( x, y, z );
 

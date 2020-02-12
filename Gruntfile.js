@@ -30,15 +30,26 @@ module.exports = function(grunt) {
 
 		concat: {
 			options: {
-				separator: ';',
+				separator: '',
 				sourceMap: true
 			},
 			dist: {
 				src: [
-					'scripts/main-grid.js'
+					'scripts/header-grid.js'
 				],
-				dest: 'scripts/app.js',
+				dest: 'scripts/compiled/concat.js',
 			},
+		},
+
+		babel: {
+			options: {
+				sourceMap: true
+			},
+			dist: {
+				files: {
+					'scripts/dist/app.js': 'scripts/compiled/concat.js'
+				}
+			}
 		},
 
 		uglify: {
@@ -47,11 +58,11 @@ module.exports = function(grunt) {
 					drop_console: false
 				},
 				sourceMap: true,
-				sourceMapIn : 'scripts/app.js.map'
+				sourceMapIn : 'scripts/dist/app.js.map'
 			},
 			dist: {
 				files: {
-					'scripts/app.min.js': ['scripts/app.js']
+					'scripts/dist/app.min.js': ['scripts/dist/app.js']
 				}
 			}
 		},
@@ -66,7 +77,7 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: ['scripts/*.js','scripts/**/*.js'],
-				tasks: ['concat', 'uglify', 'jekyll']
+				tasks: ['concat', 'babel', 'uglify', 'jekyll']
 			},
 			jekyll: {
 				files: [
@@ -94,7 +105,7 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('build', ['sass', 'concat', 'uglify']);
+	grunt.registerTask('build', ['sass', 'concat', 'babel', 'uglify']);
 
 	grunt.registerTask('default', ['build', 'jekyll', 'connect', 'watch']);
 
