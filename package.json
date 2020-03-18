@@ -17,6 +17,8 @@
     "load-grunt-tasks": "~5.1.0"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }
