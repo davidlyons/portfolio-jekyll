@@ -1,6 +1,6 @@
 (function() {
 
-	const container = document.getElementById( 'header-bg' );
+	var container = document.getElementById( 'header-bg' );
 
 	var body = document.querySelector('body');
 	var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
@@ -17,89 +17,38 @@
 	renderer.setSize( window.innerWidth, height );
 	container.appendChild( renderer.domElement );
 
-	var camera = new THREE.PerspectiveCamera( 30, window.innerWidth / height, 1, 10000 );
-	camera.position.set( 0, 0, 1500 );
+	var camera = new THREE.PerspectiveCamera( 20, window.innerWidth / height, .01, 1000 );
+	camera.position.set( 0, 0, 1.8 );
 
 	// -----------------------------------------------------------------
 
-	var OutlineShader = {
+	var textureLoader = new THREE.TextureLoader();
 
-		uniforms: {
-			offset: { type: 'f', value: 3.0 },
-			color: { type: 'v3', value: new THREE.Color( wireColor ) },
-			alpha: { type: 'f', value: 0.8 }
-		},
-
-		vertexShader: /* glsl */ `
-
-			uniform float offset;
-
-			void main() {
-				vec4 pos = modelViewMatrix * vec4( position + normal * offset, 1.0 );
-				gl_Position = projectionMatrix * pos;
-			}
-		`,
-
-		fragmentShader: /* glsl */ `
-
-			uniform vec3 color;
-			uniform float alpha;
-
-			void main() {
-				gl_FragColor = vec4( color, alpha );
-			}
-		`
-
-	};
-
-	// ----------------------------------------------------------
-
-	var outlineMat = new THREE.ShaderMaterial({
-		uniforms: THREE.UniformsUtils.clone( OutlineShader.uniforms ),
-		vertexShader: OutlineShader.vertexShader,
-		fragmentShader: OutlineShader.fragmentShader,
-		side: THREE.BackSide,
-		transparent: true
-	});
-
-	// ------------------------------------------------------------
-
-	var sphereGeo = new THREE.SphereBufferGeometry( 20, 20, 10 );
+	var sphereGeo = new THREE.SphereBufferGeometry( 2, 32, 32 );
 
 	var sphereMat = window.sphereMat = new THREE.MeshBasicMaterial({
-		color: bgColor
+		color: wireColor,
+		alphaMap: textureLoader.load('/header-bg.png'),
+		side: THREE.BackSide,
+		transparent: true,
+		opacity: 0.5
 	});
 
-	var xgrid = 30,
-			ygrid = 9,
-			zgrid = 10;
+	sphereMat.alphaMap.repeat.set( 24, 12 );
+	sphereMat.alphaMap.wrapS = sphereMat.alphaMap.wrapT = THREE.RepeatWrapping;
 
-	for ( let i = 0; i < xgrid; i ++ ) {
-		for ( let j = 0; j < ygrid; j ++ ) {
-			for ( let k = 0; k < zgrid; k ++ ) {
-
-				var mesh = new THREE.Mesh( sphereGeo, sphereMat );
-
-				const x = 200 * ( i - xgrid / 2 );
-				const y = 200 * ( j - ygrid / 2 );
-				const z = 200 * ( k - zgrid / 2 );
-
-				mesh.position.set( x, y, z );
-
-				scene.add( mesh );
-
-				var outline = new THREE.Mesh( sphereGeo, outlineMat );
-				mesh.add( outline );
-
-			}
-		}
-	}
+	var sphere = new THREE.Mesh( sphereGeo, sphereMat );
+	sphere.position.y = -0.2;
+	scene.add( sphere );
 
 	// -----------------------------------------------------------------
 
 	var mouse = new THREE.Vector2();
 
-	var cameraTarget = new THREE.Vector3();
+	var sphereTarget = new THREE.Euler();
+
+	var xrad = THREE.Math.degToRad(30);
+	var yrad = THREE.Math.degToRad(10);
 
 	header.addEventListener('mousemove', mousemove, false);
 	function mousemove(e){
@@ -108,8 +57,8 @@
 		mouse.x = ( e.clientX - rect.left ) / rect.width * 2 - 1;
 		mouse.y = ( e.clientY - rect.top ) / rect.height * -2 + 1;
 
-		cameraTarget.x = mouse.x * 500;
-		cameraTarget.y = mouse.y * 200;
+		sphereTarget.y = mouse.x * xrad;
+		sphereTarget.x = - mouse.y * yrad;
 	}
 
 	window.addEventListener( 'resize', resize, false );
@@ -124,8 +73,8 @@
 
 	function loop() {
 
-		lerp( camera.position, 'x', cameraTarget.x );
-		lerp( camera.position, 'y', cameraTarget.y );
+		lerp( sphere.rotation, 'x', sphereTarget.x );
+		lerp( sphere.rotation, 'y', sphereTarget.y );
 
 		renderer.render( scene, camera );
 
@@ -133,7 +82,7 @@
 
 	function lerp( object, prop, destination ) {
 		if (object && object[prop] !== destination) {
-			object[prop] += (destination - object[prop]) * 0.05;
+			object[prop] += (destination - object[prop]) * 0.1;
 
 			if (Math.abs(destination - object[prop]) < 0.001) {
 				object[prop] = destination;

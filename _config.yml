@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: David Lyons
 email: david.scott.lyons@gmail.com
-description: 3D Front End Web Developer, 3D Artist
+description: 3D Artist, Three.js Front End Web Developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://davidscottlyons.com" # the base hostname & protocol for your site, e.g. http://example.com
 

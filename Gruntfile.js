@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'scripts/header-grid.js'
+					'scripts/header-sphere.js'
 				],
 				dest: 'scripts/compiled/concat.js',
 			},

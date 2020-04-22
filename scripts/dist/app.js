@@ -15,66 +15,28 @@
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, height);
   container.appendChild(renderer.domElement);
-  var camera = new THREE.PerspectiveCamera(30, window.innerWidth / height, 1, 10000);
-  camera.position.set(0, 0, 1500); // -----------------------------------------------------------------
+  var camera = new THREE.PerspectiveCamera(20, window.innerWidth / height, .01, 1000);
+  camera.position.set(0, 0, 1.8); // -----------------------------------------------------------------
 
-  var OutlineShader = {
-    uniforms: {
-      offset: {
-        type: 'f',
-        value: 3.0
-      },
-      color: {
-        type: 'v3',
-        value: new THREE.Color(wireColor)
-      },
-      alpha: {
-        type: 'f',
-        value: 0.8
-      }
-    },
-    vertexShader:
-    /* glsl */
-    "\n\n\t\t\tuniform float offset;\n\n\t\t\tvoid main() {\n\t\t\t\tvec4 pos = modelViewMatrix * vec4( position + normal * offset, 1.0 );\n\t\t\t\tgl_Position = projectionMatrix * pos;\n\t\t\t}\n\t\t",
-    fragmentShader:
-    /* glsl */
-    "\n\n\t\t\tuniform vec3 color;\n\t\t\tuniform float alpha;\n\n\t\t\tvoid main() {\n\t\t\t\tgl_FragColor = vec4( color, alpha );\n\t\t\t}\n\t\t"
-  }; // ----------------------------------------------------------
-
-  var outlineMat = new THREE.ShaderMaterial({
-    uniforms: THREE.UniformsUtils.clone(OutlineShader.uniforms),
-    vertexShader: OutlineShader.vertexShader,
-    fragmentShader: OutlineShader.fragmentShader,
-    side: THREE.BackSide,
-    transparent: true
-  }); // ------------------------------------------------------------
-
-  var sphereGeo = new THREE.SphereBufferGeometry(20, 20, 10);
+  var textureLoader = new THREE.TextureLoader();
+  var sphereGeo = new THREE.SphereBufferGeometry(2, 32, 32);
   var sphereMat = window.sphereMat = new THREE.MeshBasicMaterial({
-    color: bgColor
+    color: wireColor,
+    alphaMap: textureLoader.load('/header-bg.png'),
+    side: THREE.BackSide,
+    transparent: true,
+    opacity: 0.5
   });
-  var xgrid = 30,
-      ygrid = 9,
-      zgrid = 10;
-
-  for (var i = 0; i < xgrid; i++) {
-    for (var j = 0; j < ygrid; j++) {
-      for (var k = 0; k < zgrid; k++) {
-        var mesh = new THREE.Mesh(sphereGeo, sphereMat);
-        var x = 200 * (i - xgrid / 2);
-        var y = 200 * (j - ygrid / 2);
-        var z = 200 * (k - zgrid / 2);
-        mesh.position.set(x, y, z);
-        scene.add(mesh);
-        var outline = new THREE.Mesh(sphereGeo, outlineMat);
-        mesh.add(outline);
-      }
-    }
-  } // -----------------------------------------------------------------
-
+  sphereMat.alphaMap.repeat.set(24, 12);
+  sphereMat.alphaMap.wrapS = sphereMat.alphaMap.wrapT = THREE.RepeatWrapping;
+  var sphere = new THREE.Mesh(sphereGeo, sphereMat);
+  sphere.position.y = -0.2;
+  scene.add(sphere); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
-  var cameraTarget = new THREE.Vector3();
+  var sphereTarget = new THREE.Euler();
+  var xrad = THREE.Math.degToRad(30);
+  var yrad = THREE.Math.degToRad(10);
   header.addEventListener('mousemove', mousemove, false);
 
   function mousemove(e) {
@@ -82,8 +44,8 @@
     var rect = renderer.domElement.getBoundingClientRect();
     mouse.x = (e.clientX - rect.left) / rect.width * 2 - 1;
     mouse.y = (e.clientY - rect.top) / rect.height * -2 + 1;
-    cameraTarget.x = mouse.x * 500;
-    cameraTarget.y = mouse.y * 200;
+    sphereTarget.y = mouse.x * xrad;
+    sphereTarget.x = -mouse.y * yrad;
   }
 
   window.addEventListener('resize', resize, false);
@@ -98,14 +60,14 @@
   renderer.setAnimationLoop(loop);
 
   function loop() {
-    lerp(camera.position, 'x', cameraTarget.x);
-    lerp(camera.position, 'y', cameraTarget.y);
+    lerp(sphere.rotation, 'x', sphereTarget.x);
+    lerp(sphere.rotation, 'y', sphereTarget.y);
     renderer.render(scene, camera);
   }
 
   function lerp(object, prop, destination) {
     if (object && object[prop] !== destination) {
-      object[prop] += (destination - object[prop]) * 0.05;
+      object[prop] += (destination - object[prop]) * 0.1;
 
       if (Math.abs(destination - object[prop]) < 0.001) {
         object[prop] = destination;
