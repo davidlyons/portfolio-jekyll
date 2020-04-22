@@ -45,7 +45,8 @@
 
 		&::after {
 			content: '-';
-			color: rgba(#ccc, 0.5);
+			color: rgba(#ccc, 0.4);
+			transition: color 200ms;
 			width: 15px;
 			text-align: center;
 			position: absolute;
