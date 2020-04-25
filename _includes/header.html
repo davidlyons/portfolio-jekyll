@@ -1,13 +1,13 @@
 <header>
 
-	<div id="header-bg"></div>
+	<!-- <div id="header-bg"></div> -->
 
 	<div class="container">
 
 		<div id="brand">
 			<h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
-			<div>{{ site.description }}</div>
-			<div><i class="far fa-envelope"></i> <a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+			<div id="desc">{{ site.description }}</div>
+			<div id="email"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
 		</div>
 
 		<div id="social">

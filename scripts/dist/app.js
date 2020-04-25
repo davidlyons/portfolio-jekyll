@@ -1,67 +1,74 @@
 "use strict";
 
 (function () {
-  var container = document.getElementById('header-bg');
   var body = document.querySelector('body');
   var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
   var wireColor = body.classList.contains('dark') ? 0x444444 : 0xdddddd;
   var scene = new THREE.Scene();
   scene.background = new THREE.Color(bgColor);
   var header = document.querySelector('header');
-  var height = header.offsetHeight - 1;
+  var width = 80;
+  var height = 80;
   var renderer = new THREE.WebGLRenderer({
     antialias: true
   });
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, height);
-  container.appendChild(renderer.domElement);
-  var camera = new THREE.PerspectiveCamera(20, window.innerWidth / height, .01, 1000);
-  camera.position.set(0, 0, 1.8); // -----------------------------------------------------------------
+  renderer.setSize(width, height);
+  renderer.domElement.id = 'logo';
+  var brand = document.getElementById('brand');
+  brand.parentNode.insertBefore(renderer.domElement, brand);
+  var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
+  camera.position.set(0, 0, 2);
+  var aLight = new THREE.AmbientLight(0x080808);
+  scene.add(aLight);
+  var dLight = new THREE.DirectionalLight(0xffffff, 1);
+  dLight.position.set(1, 1, 1);
+  scene.add(dLight);
+  var dLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  dLight.position.set(-1, -.25, .25);
+  scene.add(dLight);
+  var pLight = new THREE.PointLight(0x1ac6ff, 0.8, 10);
+  pLight.position.set(1, .5, .5);
+  scene.add(pLight); // -----------------------------------------------------------------
 
-  var textureLoader = new THREE.TextureLoader();
-  var sphereGeo = new THREE.SphereBufferGeometry(2, 32, 32);
-  var sphereMat = window.sphereMat = new THREE.MeshBasicMaterial({
-    color: wireColor,
-    alphaMap: textureLoader.load('/header-bg.png'),
-    side: THREE.BackSide,
-    transparent: true,
-    opacity: 0.5
-  });
-  sphereMat.alphaMap.repeat.set(24, 12);
-  sphereMat.alphaMap.wrapS = sphereMat.alphaMap.wrapT = THREE.RepeatWrapping;
-  var sphere = new THREE.Mesh(sphereGeo, sphereMat);
-  sphere.position.y = -0.2;
-  scene.add(sphere); // -----------------------------------------------------------------
+  var cube = new THREE.Group();
+  scene.add(cube);
+  var loader = new THREE.GLTFLoader().setPath('/');
+  loader.load('cube.glb', function (gltf) {
+    var mesh = gltf.scene.getObjectByName('cube');
+    mesh.material = new THREE.MeshStandardMaterial({
+      color: 0x555555
+    });
+    cube.add(mesh);
+  }); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
-  var sphereTarget = new THREE.Euler();
-  var xrad = THREE.Math.degToRad(30);
-  var yrad = THREE.Math.degToRad(10);
+  var cubeTarget = new THREE.Euler();
+  var xRange = THREE.Math.degToRad(90);
+  var yRange = THREE.Math.degToRad(180);
   header.addEventListener('mousemove', mousemove, false);
 
   function mousemove(e) {
     // NDC -1 to 1
-    var rect = renderer.domElement.getBoundingClientRect();
+    var rect = header.getBoundingClientRect();
     mouse.x = (e.clientX - rect.left) / rect.width * 2 - 1;
     mouse.y = (e.clientY - rect.top) / rect.height * -2 + 1;
-    sphereTarget.y = mouse.x * xrad;
-    sphereTarget.x = -mouse.y * yrad;
-  }
+    cubeTarget.y = mouse.x * yRange;
+    cubeTarget.x = -mouse.y * xRange;
+  } // window.addEventListener( 'resize', resize, false );
+  // function resize() {
+  // 	camera.aspect = width / height;
+  // 	camera.updateProjectionMatrix();
+  // 	renderer.setSize( width, height );
+  // }
 
-  window.addEventListener('resize', resize, false);
-
-  function resize() {
-    height = header.offsetHeight - 1;
-    camera.aspect = window.innerWidth / height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, height);
-  }
 
   renderer.setAnimationLoop(loop);
 
   function loop() {
-    lerp(sphere.rotation, 'x', sphereTarget.x);
-    lerp(sphere.rotation, 'y', sphereTarget.y);
+    if (getComputedStyle(renderer.domElement).display == 'none') return;
+    lerp(cube.rotation, 'x', cubeTarget.x);
+    lerp(cube.rotation, 'y', cubeTarget.y);
     renderer.render(scene, camera);
   }
 
