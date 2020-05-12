@@ -15,8 +15,7 @@
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   renderer.domElement.id = 'logo';
-  var brand = document.getElementById('brand');
-  brand.parentNode.insertBefore(renderer.domElement, brand);
+  header.prepend(renderer.domElement);
   var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
   camera.position.set(0, 0, 2);
   var aLight = new THREE.AmbientLight(0x080808);
@@ -32,15 +31,17 @@
   scene.add(pLight); // -----------------------------------------------------------------
 
   var cube = new THREE.Group();
-  scene.add(cube);
-  var loader = new THREE.GLTFLoader().setPath('/');
-  loader.load('cube.glb', function (gltf) {
-    var mesh = gltf.scene.getObjectByName('cube');
-    mesh.material = new THREE.MeshStandardMaterial({
-      color: 0x555555
-    });
-    cube.add(mesh);
-  }); // -----------------------------------------------------------------
+  var cubeGeo = new THREE.IcosahedronBufferGeometry(0.8, 1);
+  var wire = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
+    color: wireColor,
+    wireframe: true
+  }));
+  var solid = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
+    color: bgColor
+  }));
+  cube.add(wire);
+  cube.add(solid);
+  scene.add(cube); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
   var cubeTarget = new THREE.Euler();
