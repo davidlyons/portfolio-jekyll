@@ -14,10 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: David Lyons
-email: david.scott.lyons@gmail.com
-description: 3D Artist, Three.js Front End Web Dev
+email: david@davidlyons.dev
+description: 3D Artist / Front End Web Dev
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://davidscottlyons.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://davidlyons.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
 linkedin: davidxlyons
 twitter: davidxlyons

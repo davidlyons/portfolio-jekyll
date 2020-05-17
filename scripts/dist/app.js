@@ -17,7 +17,7 @@
   renderer.domElement.id = 'logo';
   header.prepend(renderer.domElement);
   var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
-  camera.position.set(0, 0, 2);
+  camera.position.set(0, 0, 2.4);
   var aLight = new THREE.AmbientLight(0x080808);
   scene.add(aLight);
   var dLight = new THREE.DirectionalLight(0xffffff, 1);

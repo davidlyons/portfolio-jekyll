@@ -23,17 +23,13 @@
 }
 
 #desc {
-	font-size: .72rem;
-}
-
-#email {
-	font-size: .93rem;
+	font-size: .88rem;
 }
 
 header {
 	position: relative;
 	text-align: center;
-	padding: 20px 0 0;
+	padding: 23px 0 0;
 	// border-bottom: 1px solid rgba(0,0,0,.2);
 	background: #fff;
 
@@ -83,30 +79,7 @@ header {
 	}
 }
 
-#social {
-	margin-top: 6px;
-
-	a {
-		color: #aaa;
-		font-weight: normal;
-
-		+ a {
-			margin-left: 6px;
-		}
-
-		&:hover {
-			color: #888;
-		}
-	}
-}
-
 @media (min-width: 768px) {
-	#social {
-		position: absolute;
-		top: 0;
-		right: 15px;
-		margin-top: 0;
-	}
 
 	header {
 		text-align: initial;
@@ -114,7 +87,7 @@ header {
 
 	header .container {
 		position: relative;
-		padding-bottom: 25px;
+		padding-bottom: 23px;
 	}
 
 	header nav {

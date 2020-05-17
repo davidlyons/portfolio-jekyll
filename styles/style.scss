@@ -71,6 +71,21 @@ a.card {
 	background: #fff;
 }
 
+#social {
+	a {
+		color: #aaa;
+		font-weight: normal;
+
+		+ a {
+			margin-left: 6px;
+		}
+
+		&:hover {
+			color: #888;
+		}
+	}
+}
+
 footer {
 	text-align: center;
 	color: #999;
