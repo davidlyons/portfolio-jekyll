@@ -4,9 +4,9 @@
   "repository": "github:davidlyons/davidlyons.github.io",
   "license": "Artistic-2.0",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "grunt": "^1.0.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "grunt": "^1.1.0",
     "grunt-babel": "^8.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "~2.1.0",

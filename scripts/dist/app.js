@@ -1,111 +1,81 @@
 "use strict";
 
 (function () {
-  var container = document.getElementById('header-bg');
   var body = document.querySelector('body');
   var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
   var wireColor = body.classList.contains('dark') ? 0x444444 : 0xdddddd;
   var scene = new THREE.Scene();
   scene.background = new THREE.Color(bgColor);
   var header = document.querySelector('header');
-  var height = header.offsetHeight - 1;
+  var width = 80;
+  var height = 80;
   var renderer = new THREE.WebGLRenderer({
     antialias: true
   });
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, height);
-  container.appendChild(renderer.domElement);
-  var camera = new THREE.PerspectiveCamera(30, window.innerWidth / height, 1, 10000);
-  camera.position.set(0, 0, 1500); // -----------------------------------------------------------------
+  renderer.setSize(width, height);
+  renderer.domElement.id = 'logo';
+  header.prepend(renderer.domElement);
+  var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
+  camera.position.set(0, 0, 2.4);
+  var aLight = new THREE.AmbientLight(0x080808);
+  scene.add(aLight);
+  var dLight = new THREE.DirectionalLight(0xffffff, 1);
+  dLight.position.set(1, 1, 1);
+  scene.add(dLight);
+  var dLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  dLight.position.set(-1, -.25, .25);
+  scene.add(dLight);
+  var pLight = new THREE.PointLight(0x1ac6ff, 0.8, 10);
+  pLight.position.set(1, .5, .5);
+  scene.add(pLight); // -----------------------------------------------------------------
 
-  var OutlineShader = {
-    uniforms: {
-      offset: {
-        type: 'f',
-        value: 3.0
-      },
-      color: {
-        type: 'v3',
-        value: new THREE.Color(wireColor)
-      },
-      alpha: {
-        type: 'f',
-        value: 0.8
-      }
-    },
-    vertexShader:
-    /* glsl */
-    "\n\n\t\t\tuniform float offset;\n\n\t\t\tvoid main() {\n\t\t\t\tvec4 pos = modelViewMatrix * vec4( position + normal * offset, 1.0 );\n\t\t\t\tgl_Position = projectionMatrix * pos;\n\t\t\t}\n\t\t",
-    fragmentShader:
-    /* glsl */
-    "\n\n\t\t\tuniform vec3 color;\n\t\t\tuniform float alpha;\n\n\t\t\tvoid main() {\n\t\t\t\tgl_FragColor = vec4( color, alpha );\n\t\t\t}\n\t\t"
-  }; // ----------------------------------------------------------
-
-  var outlineMat = new THREE.ShaderMaterial({
-    uniforms: THREE.UniformsUtils.clone(OutlineShader.uniforms),
-    vertexShader: OutlineShader.vertexShader,
-    fragmentShader: OutlineShader.fragmentShader,
-    side: THREE.BackSide,
-    transparent: true
-  }); // ------------------------------------------------------------
-
-  var sphereGeo = new THREE.SphereBufferGeometry(20, 20, 10);
-  var sphereMat = window.sphereMat = new THREE.MeshBasicMaterial({
+  var cube = new THREE.Group();
+  var cubeGeo = new THREE.IcosahedronBufferGeometry(0.8, 1);
+  var wire = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
+    color: wireColor,
+    wireframe: true
+  }));
+  var solid = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
     color: bgColor
-  });
-  var xgrid = 30,
-      ygrid = 9,
-      zgrid = 10;
-
-  for (var i = 0; i < xgrid; i++) {
-    for (var j = 0; j < ygrid; j++) {
-      for (var k = 0; k < zgrid; k++) {
-        var mesh = new THREE.Mesh(sphereGeo, sphereMat);
-        var x = 200 * (i - xgrid / 2);
-        var y = 200 * (j - ygrid / 2);
-        var z = 200 * (k - zgrid / 2);
-        mesh.position.set(x, y, z);
-        scene.add(mesh);
-        var outline = new THREE.Mesh(sphereGeo, outlineMat);
-        mesh.add(outline);
-      }
-    }
-  } // -----------------------------------------------------------------
-
+  }));
+  cube.add(wire);
+  cube.add(solid);
+  scene.add(cube); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
-  var cameraTarget = new THREE.Vector3();
+  var cubeTarget = new THREE.Euler();
+  var xRange = THREE.Math.degToRad(90);
+  var yRange = THREE.Math.degToRad(180);
   header.addEventListener('mousemove', mousemove, false);
 
   function mousemove(e) {
     // NDC -1 to 1
-    var rect = renderer.domElement.getBoundingClientRect();
+    var rect = header.getBoundingClientRect();
     mouse.x = (e.clientX - rect.left) / rect.width * 2 - 1;
     mouse.y = (e.clientY - rect.top) / rect.height * -2 + 1;
-    cameraTarget.x = mouse.x * 500;
-    cameraTarget.y = mouse.y * 200;
-  }
+    cubeTarget.y = mouse.x * yRange;
+    cubeTarget.x = -mouse.y * xRange;
+  } // window.addEventListener( 'resize', resize, false );
+  // function resize() {
+  // 	camera.aspect = width / height;
+  // 	camera.updateProjectionMatrix();
+  // 	renderer.setSize( width, height );
+  // }
 
-  window.addEventListener('resize', resize, false);
-
-  function resize() {
-    height = header.offsetHeight - 1;
-    camera.aspect = window.innerWidth / height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, height);
-  }
 
   renderer.setAnimationLoop(loop);
 
   function loop() {
-    lerp(camera.position, 'x', cameraTarget.x);
-    lerp(camera.position, 'y', cameraTarget.y);
+    if (getComputedStyle(renderer.domElement).display == 'none') return;
+    lerp(cube.rotation, 'x', cubeTarget.x);
+    lerp(cube.rotation, 'y', cubeTarget.y);
     renderer.render(scene, camera);
   }
 
   function lerp(object, prop, destination) {
     if (object && object[prop] !== destination) {
-      object[prop] += (destination - object[prop]) * 0.05;
+      object[prop] += (destination - object[prop]) * 0.1;
 
       if (Math.abs(destination - object[prop]) < 0.001) {
         object[prop] = destination;

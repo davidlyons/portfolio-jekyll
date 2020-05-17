@@ -1,0 +1,102 @@
+// #header-bg {
+// 	position: absolute;
+// 	top: 0;
+// 	overflow: hidden;
+// }
+
+#logo {
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: 50%;
+
+	@media (max-width: 991px) {
+		display: none;
+	}
+}
+
+#brand {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.4;
+}
+
+#desc {
+	font-size: .88rem;
+}
+
+header {
+	position: relative;
+	text-align: center;
+	padding: 23px 0 0;
+	// border-bottom: 1px solid rgba(0,0,0,.2);
+	background: #fff;
+
+	.container {
+		position: relative;
+	}
+
+	h1 {
+		font-size: 1.8rem;
+		line-height: 1;
+		text-transform: uppercase;
+		margin-bottom: 0;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+	}
+}
+
+.nav .nav-item + .nav-item {
+	margin-left: 2px;
+}
+
+.nav-link {
+	font-weight: bold;
+	padding: 19px 22px;
+	position: relative;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 0;
+		transition: height 200ms, background-color 200ms;
+		background-color: rgba(0,0,0,0.2);
+		content: '';
+	}
+
+	&:hover::after,
+	&.active::after {
+		height: 6px;
+	}
+
+	&.active:hover::after {
+		background-color: rgba(0,0,0,0.4);
+	}
+}
+
+@media (min-width: 768px) {
+
+	header {
+		text-align: initial;
+	}
+
+	header .container {
+		position: relative;
+		padding-bottom: 23px;
+	}
+
+	header nav {
+		position: absolute;
+		bottom: 0;
+		right: 15px;
+	}
+
+	.nav {
+		justify-content: flex-end !important;
+	}
+}

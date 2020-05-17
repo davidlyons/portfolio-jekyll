@@ -1,6 +1,6 @@
 body.dark {
 
-	background: #222;
+	background: #2a2a2a;
 	color: #ccc;
 
 	$blue: #1ac6ff;
@@ -19,7 +19,7 @@ body.dark {
 	}
 
 	header {
-		border-bottom-color: rgba(255,255,255,.2);
+		// border-bottom-color: rgba(255,255,255,.2);
 		background: #333;
 	}
 
@@ -36,10 +36,10 @@ body.dark {
 
 	#social {
 		a {
-			color: #777;
+			color: #555;
 
 			&:hover {
-				color: #999;
+				color: #777;
 			}
 		}
 	}
