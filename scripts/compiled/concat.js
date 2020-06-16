@@ -8,6 +8,7 @@
 	scene.background = new THREE.Color( bgColor );
 
 	var header = document.querySelector('header');
+	var container = document.querySelector('header .container');
 	var width = 80;
 	var height = 80;
 
@@ -16,7 +17,7 @@
 	renderer.setSize( width, height );
 
 	renderer.domElement.id = 'logo';
-	header.prepend( renderer.domElement );
+	header.insertBefore( renderer.domElement, container );
 
 	var camera = new THREE.PerspectiveCamera( 60, width / height, .01, 1000 );
 	camera.position.set( 0, 0, 2.4 );
