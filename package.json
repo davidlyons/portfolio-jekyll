@@ -1,8 +1,11 @@
 {
-  "name": "Portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "repository": "github:davidlyons/davidlyons.github.io",
   "license": "Artistic-2.0",
+  "scripts": {
+    "dev": "grunt"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
