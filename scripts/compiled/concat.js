@@ -64,6 +64,32 @@
 	scene.add( cube );
 
 	// -----------------------------------------------------------------
+	
+	var darkModeToggle = document.getElementById('dark-mode');
+	var icon = document.querySelector('#dark-mode i');
+	var dark = true;
+
+	darkModeToggle.addEventListener('click', function (e) {
+		e.preventDefault();
+
+		dark = !dark;
+
+		var action = dark ? 'add' : 'remove';
+		document.body.classList[action]('dark');
+
+		bgColor = dark ? 0x333333 : 0xffffff;
+		wireColor = dark ? 0x555555 : 0xdddddd;
+
+		scene.background.setHex(bgColor);
+		solid.material.color.setHex(bgColor);
+		wire.material.color.setHex(wireColor);
+
+		icon.classList.toggle('fa-sun', dark);
+		icon.classList.toggle('fa-moon', !dark);
+
+	});
+
+	// -----------------------------------------------------------------
 
 	var mouse = new THREE.Vector2();
 
