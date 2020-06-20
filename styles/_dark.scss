@@ -23,6 +23,10 @@ body.dark {
 		background: #333;
 	}
 
+	#desc {
+		color: rgba(255,255,255,0.5);
+	}
+
 	.nav-link {
 
 		&::after {
@@ -92,5 +96,16 @@ body.dark {
 
 	.border {
 		border: 1px solid #545454 !important;
+	}
+
+	.resume {
+		[data-toggle="collapse"] {
+			color: #eee;
+			border-bottom-color: rgba(#fff,0.1);
+
+			&::after {
+				color: rgba(#ccc, 0.4);
+			}
+		}
 	}
 }

@@ -2,7 +2,7 @@
 
 	var body = document.querySelector('body');
 	var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
-	var wireColor = body.classList.contains('dark') ? 0x444444 : 0xdddddd;
+	var wireColor = body.classList.contains('dark') ? 0x444444 : 0xcccccc;
 
 	var scene = new THREE.Scene();
 	scene.background = new THREE.Color( bgColor );
@@ -64,21 +64,23 @@
 	scene.add( cube );
 
 	// -----------------------------------------------------------------
-	
+
+	// Dark mode toggle
+
 	var darkModeToggle = document.getElementById('dark-mode');
 	var icon = document.querySelector('#dark-mode i');
-	var dark = true;
+	var theme = window.localStorage.getItem('theme') || 'dark';
+	var dark = theme == 'dark' ? true : false;
 
-	darkModeToggle.addEventListener('click', function (e) {
-		e.preventDefault();
-
-		dark = !dark;
+	function setTheme() {
+		theme = dark ? 'dark' : 'light';
+		window.localStorage.setItem('theme', theme);
 
 		var action = dark ? 'add' : 'remove';
 		document.body.classList[action]('dark');
 
 		bgColor = dark ? 0x333333 : 0xffffff;
-		wireColor = dark ? 0x555555 : 0xdddddd;
+		wireColor = dark ? 0x444444 : 0xcccccc;
 
 		scene.background.setHex(bgColor);
 		solid.material.color.setHex(bgColor);
@@ -87,7 +89,20 @@
 		icon.classList.toggle('fa-sun', dark);
 		icon.classList.toggle('fa-moon', !dark);
 
+		darkModeToggle.title = dark ? 'Light mode' : 'Dark mode';
+	}
+
+	darkModeToggle.addEventListener('click', function (e) {
+		e.preventDefault();
+		dark = !dark;
+		setTheme();
+
+		if (document.location.hostname != 'localhost') {
+			gtag('event', 'dark mode');
+		}
 	});
+
+	setTheme();
 
 	// -----------------------------------------------------------------
 

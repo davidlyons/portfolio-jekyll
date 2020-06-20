@@ -24,13 +24,14 @@
 
 #desc {
 	font-size: .88rem;
+	color: rgba(0,0,0,0.7);
 }
 
 header {
 	position: relative;
 	text-align: center;
 	padding: 23px 0 0;
-	// border-bottom: 1px solid rgba(0,0,0,.2);
+	border-bottom: 1px solid rgba(#000,.1);
 	background: #fff;
 
 	.container {
