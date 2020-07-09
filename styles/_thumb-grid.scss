@@ -17,8 +17,13 @@
 		}
 	}
 
-	a {
+	&.grid-lg-7 {
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(7, 1fr);
+		}
+	}
 
+	a {
 		img {
 			width: 100%;
 			transition: opacity 200ms ease-in-out;
@@ -43,7 +48,7 @@
 		font-weight: 700;
 		font-size: 21px;
 		line-height: 1;
-		text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+		text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 
 		.table-overlay {
 			opacity: 0;
