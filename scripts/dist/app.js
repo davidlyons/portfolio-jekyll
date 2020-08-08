@@ -3,10 +3,11 @@
 (function () {
   var body = document.querySelector('body');
   var bgColor = body.classList.contains('dark') ? 0x333333 : 0xffffff;
-  var wireColor = body.classList.contains('dark') ? 0x444444 : 0xdddddd;
+  var wireColor = body.classList.contains('dark') ? 0x444444 : 0xcccccc;
   var scene = new THREE.Scene();
   scene.background = new THREE.Color(bgColor);
   var header = document.querySelector('header');
+  var container = document.querySelector('header .container');
   var width = 80;
   var height = 80;
   var renderer = new THREE.WebGLRenderer({
@@ -15,7 +16,7 @@
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(width, height);
   renderer.domElement.id = 'logo';
-  header.prepend(renderer.domElement);
+  header.insertBefore(renderer.domElement, container);
   var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
   camera.position.set(0, 0, 2.4);
   var aLight = new THREE.AmbientLight(0x080808);
@@ -42,6 +43,38 @@
   cube.add(wire);
   cube.add(solid);
   scene.add(cube); // -----------------------------------------------------------------
+  // Dark mode toggle
+
+  var darkModeToggle = document.getElementById('dark-mode');
+  var icon = document.querySelector('#dark-mode i');
+  var theme = window.localStorage.getItem('theme') || 'dark';
+  var dark = theme == 'dark' ? true : false;
+
+  function setTheme() {
+    theme = dark ? 'dark' : 'light';
+    window.localStorage.setItem('theme', theme);
+    var action = dark ? 'add' : 'remove';
+    document.body.classList[action]('dark');
+    bgColor = dark ? 0x333333 : 0xffffff;
+    wireColor = dark ? 0x444444 : 0xcccccc;
+    scene.background.setHex(bgColor);
+    solid.material.color.setHex(bgColor);
+    wire.material.color.setHex(wireColor);
+    icon.classList.toggle('fa-sun', dark);
+    icon.classList.toggle('fa-moon', !dark);
+    darkModeToggle.title = dark ? 'Light mode' : 'Dark mode';
+  }
+
+  darkModeToggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    dark = !dark;
+    setTheme();
+
+    if (document.location.hostname != 'localhost') {
+      gtag('event', 'dark mode');
+    }
+  });
+  setTheme(); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
   var cubeTarget = new THREE.Euler();
