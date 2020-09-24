@@ -1,7 +1,7 @@
 .thumb-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 1px;
+	// grid-gap: 1px;
 
 	@media (min-width: 576px) {
 		grid-template-columns: repeat(3, 1fr);
@@ -17,9 +17,9 @@
 		}
 	}
 
-	&.grid-lg-7 {
+	&.grid-lg-5 {
 		@media (min-width: 768px) {
-			grid-template-columns: repeat(7, 1fr);
+			grid-template-columns: repeat(5, 1fr);
 		}
 	}
 
