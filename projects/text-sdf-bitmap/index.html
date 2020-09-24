@@ -4,16 +4,16 @@ title: Rendering Text in WebVR
 
 <div class="container container-narrow">
 
-	<h2>{{ page.title }}</h2>
+	<h2 class="mb-3">{{ page.title }}</h2>
 
-	<div class="mb-3">
+	<div class="mb-5">
 		<a href="https://developers.google.com/web/showcase/2017/within" class="btn btn-primary"><i class="fab fa-google mr-1"></i> Article</a>
 		<a href="https://github.com/davidlyons/text-sdf-bitmap" class="btn btn-primary"><i class="fab fa-github mr-1"></i> GitHub</a>
 		<a href="{{ "/text-sdf-bitmap/" | absolute_url }}" class="btn btn-primary"><i class="fas fa-font mr-1"></i> Example</a>
 	</div>
 
-	<a href="{{ "/text-sdf-bitmap/" | absolute_url }}"">
-		<img src="images/text-sdf-bitmap.png" class="img-fluid border mb-3" alt="SDF Bitmap Text example">
+	<a href="{{ "/text-sdf-bitmap/" | absolute_url }}" class="d-block border mb-5">
+		<img src="images/text-sdf-bitmap.png" class="img-fluid" alt="SDF Bitmap Text example">
 	</a>
 
 	<p>The purpose of this <a href="https://github.com/davidlyons/text-sdf-bitmap">GitHub repo</a> is to make it as easy as possible to add arbitrary text to new Three.js WebVR projects. This involves either using the included Roboto font, or converting another licensed font to the same format (.png + .json) for use in Three.js.</p>

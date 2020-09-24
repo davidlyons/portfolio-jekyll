@@ -1,4 +1,15 @@
 
+// Characters which are escaped by the escape-svg function
+// prettier-ignore
+$escaped-characters: (
+  ("<", "%3c"),
+  (">", "%3e"),
+  ("#", "%23"),
+  ("(", "%28"),
+  (")", "%29"),
+);
+
+@import 'functions';
 // @import 'pygments/github';
 @import 'pygments/base16-eighties-dark';
 @import 'animate';
@@ -19,6 +30,9 @@ body {
 	overflow-x: hidden;
 	background: #ddd;
 
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0.2px;
+
 	// fix for magnific pop up pushing body to the left
 	&.lightbox {
 		overflow-y: auto;
@@ -27,8 +41,8 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: 'Rubik', sans-serif;
-	font-weight: 700;
+	// font-family: 'Rubik', sans-serif;
+	font-weight: 300;
 }
 
 $blue: #0080ff;
