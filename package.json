@@ -4,7 +4,8 @@
   "repository": "github:davidlyons/davidlyons.github.io",
   "license": "Artistic-2.0",
   "scripts": {
-    "dev": "grunt"
+    "dev": "grunt",
+    "webp": "node webp.js"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -17,6 +18,8 @@
     "grunt-contrib-uglify": "~5.0.0",
     "grunt-contrib-watch": "~1.1.0",
     "grunt-jekyll": "^1.0.1",
+    "imagemin": "^7.0.1",
+    "imagemin-webp": "^6.0.0",
     "load-grunt-tasks": "~5.1.0"
   },
   "babel": {
