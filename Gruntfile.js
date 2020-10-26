@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'scripts/header-icosahedron.js'
+					'scripts/header.js'
 				],
 				dest: 'scripts/compiled/concat.js',
 			},

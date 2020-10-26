@@ -32,7 +32,7 @@
   scene.add(pLight); // -----------------------------------------------------------------
 
   var cube = new THREE.Group();
-  var cubeGeo = new THREE.IcosahedronBufferGeometry(0.8, 1);
+  var cubeGeo = new THREE.IcosahedronBufferGeometry(0.8, 0);
   var wire = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
     color: wireColor,
     wireframe: true
