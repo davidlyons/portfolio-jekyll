@@ -10,15 +10,12 @@ $escaped-characters: (
 );
 
 @import 'functions';
-// @import 'pygments/github';
 @import 'pygments/base16-eighties-dark';
 @import 'animate';
 @import 'magnific-popup';
 @import 'header';
 @import 'thumb-grid';
 @import 'resume';
-
-@import '_dark';
 
 html {
 	font-size: 0.94rem;
@@ -28,7 +25,8 @@ body {
 	line-height: 1.7;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	background: #ddd;
+	background: #2a2a2a;
+	color: #ccc;
 
 	font-family: 'Roboto', sans-serif;
 	letter-spacing: 0.2px;
@@ -44,7 +42,7 @@ h1, h2, h3, h4, h5, h6,
 	font-weight: 300;
 }
 
-$blue: #0080ff;
+$blue: #1ac6ff;
 
 a {
 	color: $blue;
@@ -52,22 +50,37 @@ a {
 	transition: color 200ms;
 
 	&:hover {
-		color: darken($blue, 15%);
+		color: lighten($blue, 15%);
 		text-decoration: none;
 	}
 }
 
+a[class*='btn'],
+.sketches .gifs a {
+	color: #fff;
+}
+
+.card {
+	background-color: #3a3a3a;
+}
+
 a.card {
 	transition: background-color 200ms, color 200ms;
+
+	&:hover {
+		color: #fff;
+		background-color: #444;
+	}
 }
 
 .home {
 	a.card {
 		font-weight: bold;
+		transition: background-color 200ms, color 200ms, box-shadow 200ms;
 
 		&:hover {
 			color: #fff;
-			background-color: $blue;
+			box-shadow: 0 10px 10px rgba(0,0,0,0.1);
 		}
 	}
 }
@@ -79,14 +92,18 @@ a.card {
 	}
 }
 
+.border {
+	border: 1px solid #545454 !important;
+}
+
 #content {
 	padding: 2rem 0;
-	background: #fff;
+	background: #2f2f2f;
 }
 
 #social {
 	a {
-		color: #aaa;
+		color: #555;
 		font-weight: normal;
 
 		+ a {
@@ -94,21 +111,21 @@ a.card {
 		}
 
 		&:hover {
-			color: #888;
+			color: #777;
 		}
 	}
 }
 
 footer {
 	text-align: center;
-	color: #999;
+	color: #555;
 	padding: 20px 0;
-	border-top: 1px solid rgba(0,0,0,.2);
 }
 
 hr {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+	border-top-color: rgba(255,255,255,.1);
 }
 
 .highlight {
