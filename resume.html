@@ -5,11 +5,14 @@ collapse: true
 
 <div class="container">
 
-	<p class="float-right">
-		<a class="btn btn-primary" href="{{ "/David-Lyons-Resume.pdf" | relative_url }}" title="Resume" download><i class="fas fa-file-download mr-1"></i> Download PDF</a>
-	</p>
-
-	<h2>{{ page.title }}</h2>
+	<div class="d-flex align-items-center mb-4">
+		<h2 class="mb-0">{{ page.title }}</h2>
+		<div class="ms-auto">
+			<a class="btn btn-primary" href="{{ "/David-Lyons-Resume.pdf" | relative_url }}" title="Resume" download>
+				<i class="fas fa-file-download me-1"></i> Download PDF
+			</a>
+		</div>
+	</div>
 
 	<div class="resume">
 
@@ -54,8 +57,8 @@ collapse: true
 
 					<li class="mt-4"><strong>Currently learning:</strong></li>
 					<li>GLSL Shaders</li>
-					<li>React</li>
-					<li>Vue</li>
+					<li>Blender</li>
+					<li>React, Gatsby</li>
 				</ul>
 			</div>
 		</div>
@@ -66,19 +69,20 @@ collapse: true
 			</div>
 			<div class="col-md-9">
 
-				<div data-toggle="collapse" data-target="#freelance" role="button" aria-expanded="false" aria-controls="freelance" class="collapsed">
+				<div data-bs-toggle="collapse" data-bs-target="#freelance" role="button" aria-expanded="false" aria-controls="freelance" class="collapsed">
 					<strong>Freelance</strong>, Los Angeles, CA, September 2018 - Present<br>
 					Self Employed
 				</div>
 				<div class="collapse" id="freelance">
 					<ul>
 						<li>3D, Three.js, WebGL</li>
+						<li>Design System Support Engineer</li>
 						<li>Front End Web Development</li>
-						<li>Design Systems, Storybook, Webpack</li>
+						<li>React, Bootstrap, Reactstrap, Gatsby, Storybook, Webpack</li>
 					</ul>
 				</div>
 
-				<div data-toggle="collapse" data-target="#object-edge" role="button" aria-expanded="false" aria-controls="object-edge" class="collapsed">
+				<div data-bs-toggle="collapse" data-bs-target="#object-edge" role="button" aria-expanded="false" aria-controls="object-edge" class="collapsed">
 					<strong><a href="https://www.objectedge.com/">Object Edge</a></strong> (Contract), Los Angeles, CA, February 2019 - January 2020<br>
 					Front End Web + 3D Web Developer
 				</div>
@@ -94,7 +98,7 @@ collapse: true
 					</ul>
 				</div>
 
-				<div data-toggle="collapse" data-target="#within" role="button" aria-expanded="false" aria-controls="within" class="collapsed">
+				<div data-bs-toggle="collapse" data-bs-target="#within" role="button" aria-expanded="false" aria-controls="within" class="collapsed">
 					<strong><a href="https://www.with.in/">WITHIN</a></strong>, Los Angeles, CA, November 2015 - August 2018<br>
 					Software Engineer
 				</div>
@@ -111,7 +115,7 @@ collapse: true
 					</ul>
 				</div>
 
-				<div data-toggle="collapse" data-target="#slingshot" role="button" aria-expanded="false" aria-controls="slingshot" class="collapsed">
+				<div data-bs-toggle="collapse" data-bs-target="#slingshot" role="button" aria-expanded="false" aria-controls="slingshot" class="collapsed">
 					<strong><a href="http://www.slingshot.com/">Slingshot</a></strong>, Dallas, TX, March 2013 - November 2015<br>
 					Front End Web Developer
 				</div>
@@ -126,7 +130,7 @@ collapse: true
 					</ul>
 				</div>
 
-				<div data-toggle="collapse" data-target="#richards" role="button" aria-expanded="false" aria-controls="richards" class="collapsed">
+				<div data-bs-toggle="collapse" data-bs-target="#richards" role="button" aria-expanded="false" aria-controls="richards" class="collapsed">
 					<strong><a href="https://richards.com/">The Richards Group</a> / <a href="https://clickherelabs.com/">Click Here Labs</a></strong>, Dallas, TX, March 2012 - March 2013<br>
 					Front End Web Developer
 				</div>
@@ -140,7 +144,7 @@ collapse: true
 					</ul>
 				</div>
 
-				<!-- <div data-toggle="collapse" data-target="#epic-web" role="button" aria-expanded="false" aria-controls="epic-web" class="collapsed">
+				<!-- <div data-bs-toggle="collapse" data-bs-target="#epic-web" role="button" aria-expanded="false" aria-controls="epic-web" class="collapsed">
 					<strong>Epic Web</strong>, Dallas, TX, April 2011 - March 2012<br>
 					Web Designer and Front End Web Developer
 				</div>

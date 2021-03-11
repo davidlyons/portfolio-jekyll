@@ -99,7 +99,7 @@ body.dark {
 	}
 
 	.resume {
-		[data-toggle="collapse"] {
+		[data-bs-toggle="collapse"] {
 			color: #eee;
 
 			&::after {
