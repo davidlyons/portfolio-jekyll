@@ -8,6 +8,7 @@ $escaped-characters: (
   (")", "%29"),
 );
 
+@import 'variables';
 @import 'functions';
 @import 'pygments/base16-eighties-dark';
 @import 'animate';
@@ -36,27 +37,16 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+// prettier-ignore
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
   font-weight: 300;
 }
-
-$blue: #1ac6ff;
 
 a:not(.btn) {
   color: $blue;
   text-decoration: none;
-  transition: color 200ms;
+  transition: color 300ms ease-in-out;
 
   &:hover {
     color: lighten($blue, 15%);
@@ -85,9 +75,10 @@ a.card {
   a.card {
     font-weight: bold;
     transition: background-color 200ms, color 200ms, box-shadow 200ms;
+    color: #ccc;
 
     &:hover {
-      color: #fff;
+      color: $blue;
       box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     }
   }
@@ -102,7 +93,11 @@ a.card {
   background: #2f2f2f;
 }
 
-#social {
+#footer {
+  text-align: center;
+  color: #555;
+  padding: 20px 0;
+
   a {
     color: #555;
     font-weight: normal;
@@ -115,12 +110,6 @@ a.card {
       color: #777;
     }
   }
-}
-
-footer {
-  text-align: center;
-  color: #555;
-  padding: 20px 0;
 }
 
 hr {

@@ -1,34 +1,33 @@
-<header>
-  <div class="container">
-    <div id="brand">
+<header class="text-md-start">
+  <div class="container d-sm-flex align-items-center">
+    <div id="brand" class="mb-4 mb-sm-0">
       <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
       <div id="desc">{{ site.description }}</div>
     </div>
 
-    <nav role="navigation">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a
-            class="nav-link {% if page.url == '/' or page.url contains 'projects' %}active{% endif %}"
-            href="{{ '/' | relative_url }}"
-          >
-            Work
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {% if page.title == 'About' %}active{% endif %}" href="{{ '/about.html' | relative_url }}">
-            About
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link {% if page.title == 'Resume' %}active{% endif %}"
-            href="{{ '/resume.html' | relative_url }}"
-          >
-            Resume
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div id="logo" class="d-none d-md-block"></div>
+
+    <div class="ms-sm-auto">
+      <nav class="nav nav-pills justify-content-center" role="navigation">
+        <ul class="nav">
+            <a
+              class="nav-link {% if page.url == '/' or page.url contains 'projects' %}active{% endif %}"
+              href="{{ '/' | relative_url }}"
+            >
+              Work
+            </a>
+            <a class="nav-link {% if page.title == 'About' %}active{% endif %}" href="{{ '/about.html' | relative_url }}">
+              About
+            </a>
+          </li>
+            <a
+              class="nav-link {% if page.title == 'Resume' %}active{% endif %}" href="{{ '/resume.html' | relative_url }}"
+            >
+              Resume
+            </a>
+        </ul>
+      </nav>
+    </div>
+
   </div>
 </header>
