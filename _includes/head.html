@@ -1,7 +1,9 @@
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
-	<script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- prettier-ignore -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.googleanalytics }}"></script>
+  <!-- prettier-ignore -->
+  <script>
 		if (document.location.hostname != 'localhost') {
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
@@ -11,47 +13,61 @@
 		}
 	</script>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="author" content="{{ site.title }}">
-	<meta name="description" content="{{ site.description }}">
-	<meta name="keywords" content="3D art, 3D artist, digital art, digital artist, modeler, 3D modeler, 3D modeling, sculptor, digital sculptor, digital sculpting, character art, character artist, Maya, ZBrush, Sublime Text, Three.js, javascript, HTML, CSS, interactive, interaction, WebGL, WebVR, WebXR, virtual reality, augmented reality, front end web developer, UI developer, software engineer, user interface">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="{{ site.title }}" />
+  <meta name="description" content="{{ site.description }}" />
+  <meta
+    name="keywords"
+    content="3D art, 3D artist, digital art, digital artist, modeler, 3D modeler, 3D modeling, sculptor, digital sculptor, digital sculpting, character art, character artist, Maya, ZBrush, Sublime Text, Three.js, javascript, HTML, CSS, interactive, interaction, WebGL, WebVR, WebXR, virtual reality, augmented reality, front end web developer, UI developer, software engineer, user interface"
+  />
 
-	<link rel="icon" href="{{ "/favicon-32.png" | relative_url }}">
+  <link rel="icon" href="{{ '/favicon-32.png' | relative_url }}" />
 
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %} | {{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %} | {{ site.title }}</title>
 
-	<!-- Facebook Open Graph Protocol http://ogp.me/ -->
-	<meta property="og:title"         content="{{ site.title }}" />
-	<meta property="og:type"          content="profile" />
-	<meta property="og:image"         content="{{ "thumb.png" | absolute_url }}" />
-	<meta property="og:url"           content="{{ site.url }}" />
-	<meta property="og:description"   content="{{ site.description }}" />
-	<meta property="og:site_name"     content="{{ site.title }}" />
-	<meta property="fb:app_id"        content="{{ site.fbappid }}" />
+  <!-- Facebook Open Graph Protocol http://ogp.me/ -->
+  <meta property="og:title" content="{{ site.title }}" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="{{ "thumb.png" | absolute_url }}" />
+  <meta property="og:url" content="{{ site.url }}" />
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="fb:app_id" content="{{ site.fbappid }}" />
 
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@{{ site.twitter }}" />
-	<meta name="twitter:title" content="{{ site.title }}" />
-	<meta name="twitter:description" content="{{ site.description }}" />
-	<meta name="twitter:image" content="{{ "thumb.png" | absolute_url }}" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{ site.twitter }}" />
+  <meta name="twitter:title" content="{{ site.title }}" />
+  <meta name="twitter:description" content="{{ site.description }}" />
+  <meta name="twitter:image" content="{{ "thumb.png" | absolute_url }}" />
 
-	<!-- Pinterest -->
-	<meta name="p:domain_verify" content="7685fd3ef995a0dfe57a48656e270ff1"/>
+  <!-- Pinterest -->
+  <meta name="p:domain_verify" content="7685fd3ef995a0dfe57a48656e270ff1" />
 
-	<meta name="theme-color" content="#0080ff">
+  <meta name="theme-color" content="#0080ff" />
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+    crossorigin="anonymous"
+  />
 
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Rubik:wght@700&display=swap"
+    rel="stylesheet"
+  />
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M"
+    crossorigin="anonymous"
+  />
 
-	{% if page.gallery %}
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet">
-	{% endif %}
-
-	<link href="{{ "/styles/style.css" | relative_url }}" rel="stylesheet">
-
+  {% if page.gallery %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+  {% endif %}
+  <link href="{{ '/styles/style.css' | relative_url }}" rel="stylesheet" />
 </head>

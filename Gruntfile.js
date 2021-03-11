@@ -1,112 +1,102 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+  // load all grunt tasks
+  require('load-grunt-tasks')(grunt);
 
-	// load all grunt tasks
-	require('load-grunt-tasks')(grunt);
+  // Project configuration.
+  grunt.initConfig({
+    jekyll: {
+      options: {
+        bundleExec: true,
+      },
+      dist: {
+        options: {
+          baseurl: '.',
+        },
+      },
+    },
 
-	// Project configuration.
-	grunt.initConfig({
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed',
+        },
+        files: {
+          'styles/style.css': 'styles/style.scss',
+        },
+      },
+    },
 
-		jekyll: {
-			options: {
-				bundleExec: true,
-			},
-			dist: {
-				options: {
-					baseurl: '.'
-				}
-			}
-		},
+    concat: {
+      options: {
+        separator: '',
+        sourceMap: true,
+      },
+      dist: {
+        src: ['scripts/header.js'],
+        dest: 'scripts/compiled/concat.js',
+      },
+    },
 
-		sass: {
-			dist: {
-				options: {
-					style: 'compressed'
-				},
-				files: {
-					'styles/style.css': 'styles/style.scss'
-				}
-			}
-		},
+    babel: {
+      options: {
+        sourceMap: true,
+      },
+      dist: {
+        files: {
+          'scripts/dist/app.js': 'scripts/compiled/concat.js',
+        },
+      },
+    },
 
-		concat: {
-			options: {
-				separator: '',
-				sourceMap: true
-			},
-			dist: {
-				src: [
-					'scripts/header.js'
-				],
-				dest: 'scripts/compiled/concat.js',
-			},
-		},
+    uglify: {
+      options: {
+        compress: {
+          drop_console: false,
+        },
+        sourceMap: true,
+        sourceMapIn: 'scripts/dist/app.js.map',
+      },
+      dist: {
+        files: {
+          'scripts/dist/app.min.js': ['scripts/dist/app.js'],
+        },
+      },
+    },
 
-		babel: {
-			options: {
-				sourceMap: true
-			},
-			dist: {
-				files: {
-					'scripts/dist/app.js': 'scripts/compiled/concat.js'
-				}
-			}
-		},
+    watch: {
+      options: {
+        livereload: true,
+      },
+      sass: {
+        files: ['styles/*.scss', 'styles/**/*.scss'],
+        tasks: ['sass', 'jekyll'],
+      },
+      scripts: {
+        files: ['scripts/*.js', 'scripts/**/*.js'],
+        tasks: ['concat', 'babel', 'uglify', 'jekyll'],
+      },
+      jekyll: {
+        files: ['**/*.{html,yml,md,mkd,markdown}', '!_site/**/*', '!node_modules/**/*'],
+        tasks: ['jekyll'],
+      },
+    },
 
-		uglify: {
-			options: {
-				compress: {
-					drop_console: false
-				},
-				sourceMap: true,
-				sourceMapIn : 'scripts/dist/app.js.map'
-			},
-			dist: {
-				files: {
-					'scripts/dist/app.min.js': ['scripts/dist/app.js']
-				}
-			}
-		},
+    connect: {
+      options: {
+        port: 9000,
+        base: '_site',
+      },
+      dist: {
+        options: {
+          open: {
+            target: 'http://localhost:9000/',
+          },
+        },
+      },
+    },
+  });
 
-		watch: {
-			options: {
-				livereload: true
-			},
-			sass: {
-				files: ['styles/*.scss', 'styles/**/*.scss'],
-				tasks: ['sass', 'jekyll']
-			},
-			scripts: {
-				files: ['scripts/*.js','scripts/**/*.js'],
-				tasks: ['concat', 'babel', 'uglify', 'jekyll']
-			},
-			jekyll: {
-				files: [
-					'**/*.{html,yml,md,mkd,markdown}',
-					'!_site/**/*',
-					'!node_modules/**/*'
-				],
-				tasks: ['jekyll']
-			}
-		},
+  grunt.registerTask('build', ['sass', 'concat', 'babel', 'uglify']);
 
-		connect: {
-			options: {
-				port: 9000,
-				base: '_site'
-			},
-			dist: {
-				options: {
-					open: {
-						target: 'http://localhost:9000/'
-					}
-				}
-			}
-		}
-
-	});
-
-	grunt.registerTask('build', ['sass', 'concat', 'babel', 'uglify']);
-
-	grunt.registerTask('default', ['build', 'jekyll', 'connect', 'watch']);
-
+  grunt.registerTask('default', ['build', 'jekyll', 'connect', 'watch']);
 };

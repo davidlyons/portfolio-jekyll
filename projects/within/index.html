@@ -4,77 +4,79 @@ gallery: true
 ---
 
 <div class="container">
+  <h2>{{ page.title }}</h2>
+  <a href="https://vr.with.in/" class="btn btn-primary mb-5">
+    <i class="fas fa-external-link-alt me-1"></i>
+    Launch Project
+  </a>
 
-	<h2>{{ page.title }}</h2>
-	<a href="https://vr.with.in/" class="btn btn-primary mb-5">
-		<i class="fas fa-external-link-alt me-1"></i> Launch Project
-	</a>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="ratio ratio-16x9 mb-5">
+        <iframe src="https://www.youtube.com/embed/hiWhFarz-GA?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+      </div>
 
-	<div class="row">
-		<div class="col-lg-6">
+      <div class="row gallery my-5">
+        <div class="col-sm-4">
+          <a class="card mb-3" href="images/within-gallery.jpg" title="thumbnail grid">
+            <img class="card-img-top" src="images/within-gallery.jpg" alt="thumbnail grid" />
+            <div class="card-body">
+              <p class="card-text">
+                <small>thumbnail grid</small>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <a class="card mb-3" href="images/detail-view.jpg" title="detail view">
+            <img class="card-img-top" src="images/detail-view.jpg" alt="detail view" />
+            <div class="card-body">
+              <p class="card-text">
+                <small>detail view</small>
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <a class="card mb-3" href="images/video-controls.jpg" title="video controls">
+            <img class="card-img-top" src="images/video-controls.jpg" alt="video controls" />
+            <div class="card-body">
+              <p class="card-text">
+                <small>video controls</small>
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 offset-lg-1">
+      <h4>360 video webplayer and WebVR platform</h4>
+      <p class="h5 mb-3">2015 - 2018</p>
 
-			<div class="ratio ratio-16x9 mb-5">
-				<iframe src="https://www.youtube.com/embed/hiWhFarz-GA?rel=0&amp;showinfo=0"
-					allowfullscreen></iframe>
-			</div>
+      <p>
+        Responsible for 3D user interface elements, including paginated thumbnail grid, video detail view with play and
+        back buttons, video player controls with replay, play / pause, resolution and back buttons, and timeline seek
+        bar with Three.js and vanilla javascript. The detail view and video controls use
+        <a href="{{ '/projects/text-sdf-bitmap/' | relative_url }}">SDF Bitmap Text</a>
+        , and I added support for VR displays and VR controllers with the WebVR API and Gamepad API.
+      </p>
 
-			<div class="row gallery my-5">
-				<div class="col-sm-4">
-					<a class="card mb-3" href="images/within-gallery.jpg" title="thumbnail grid">
-						<img class="card-img-top" src="images/within-gallery.jpg" alt="thumbnail grid">
-						<div class="card-body">
-							<p class="card-text">
-								<small>thumbnail grid</small>
-							</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a class="card mb-3" href="images/detail-view.jpg" title="detail view">
-						<img class="card-img-top" src="images/detail-view.jpg" alt="detail view">
-						<div class="card-body">
-							<p class="card-text">
-								<small>detail view</small>
-							</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-4">
-					<a class="card mb-3" href="images/video-controls.jpg" title="video controls">
-						<img class="card-img-top" src="images/video-controls.jpg" alt="video controls">
-						<div class="card-body">
-							<p class="card-text">
-								<small>video controls</small>
-							</p>
-						</div>
-					</a>
-				</div>
-			</div>
+      <p>
+        Supported devices include Oculus Rift, Vive, Windows MR, Oculus Go, GearVR and Daydream. A user with any of
+        these headsets and a browser that supports WebVR can select "Enter VR" to browse and watch a curated collection
+        of spherical videos within their web browser. I frequently tested the site and fixed bugs on each of these
+        platforms to ensure they were working in their supported browser.
+      </p>
 
-		</div>
-		<div class="col-lg-5 offset-lg-1">
-
-			<h4>360 video webplayer and WebVR platform</h4>
-			<p class="h5 mb-3">2015 - 2018</p>
-
-			<p>Responsible for 3D user interface elements, including paginated thumbnail grid, video detail view with play and back
-				buttons, video player controls with replay, play / pause, resolution and back buttons, and timeline seek bar with
-				Three.js and vanilla javascript. The detail view and video controls use <a
-					href="{{ "/projects/text-sdf-bitmap/" | relative_url }}">SDF Bitmap Text</a>, and I added support for VR displays
-				and VR controllers with the WebVR API and Gamepad API.</p>
-
-			<p>Supported devices include Oculus Rift, Vive, Windows MR, Oculus Go, GearVR and Daydream. A user with any of these
-				headsets and a browser that supports WebVR can select "Enter VR" to browse and watch a curated collection of spherical
-				videos within their web browser. I frequently tested the site and fixed bugs on each of these platforms to ensure they
-				were working in their supported browser.</p>
-
-			<p>Through the <a href="https://github.com/davidlyons/THREE.VRController">Gamepad API</a>, any 3DOF or 6DOF controller
-				can be used to "hover" over an interface element by pointing at it with a raycast, and selecting it with a primary
-				button press. Controller models are loaded in to match the user's controller when it is connected (Oculus Touch,
-				Daydream controller, etc). Users can also navigate the interface and rotate the camera with a mouse, XBox controller,
-				keyboard arrow keys and spacebar, or 0DOF DPad (like the Oculus Remote).</p>
-
-		</div>
-	</div>
-
+      <p>
+        Through the
+        <a href="https://github.com/davidlyons/THREE.VRController">Gamepad API</a>
+        , any 3DOF or 6DOF controller can be used to "hover" over an interface element by pointing at it with a raycast,
+        and selecting it with a primary button press. Controller models are loaded in to match the user's controller
+        when it is connected (Oculus Touch, Daydream controller, etc). Users can also navigate the interface and rotate
+        the camera with a mouse, XBox controller, keyboard arrow keys and spacebar, or 0DOF DPad (like the Oculus
+        Remote).
+      </p>
+    </div>
+  </div>
 </div>

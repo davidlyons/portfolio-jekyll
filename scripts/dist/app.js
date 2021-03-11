@@ -16,7 +16,7 @@
   renderer.setSize(width, height);
   renderer.domElement.id = 'logo';
   header.insertBefore(renderer.domElement, container);
-  var camera = new THREE.PerspectiveCamera(60, width / height, .01, 1000);
+  var camera = new THREE.PerspectiveCamera(60, width / height, 0.01, 1000);
   camera.position.set(0, 0, 2.4);
   var aLight = new THREE.AmbientLight(0x080808);
   scene.add(aLight);
@@ -24,10 +24,10 @@
   dLight.position.set(1, 1, 1);
   scene.add(dLight);
   var dLight = new THREE.DirectionalLight(0xffffff, 0.4);
-  dLight.position.set(-1, -.25, .25);
+  dLight.position.set(-1, -0.25, 0.25);
   scene.add(dLight);
   var pLight = new THREE.PointLight(0x1ac6ff, 0.8, 10);
-  pLight.position.set(1, .5, .5);
+  pLight.position.set(1, 0.5, 0.5);
   scene.add(pLight); // -----------------------------------------------------------------
 
   var cube = new THREE.Group();

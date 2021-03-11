@@ -4,52 +4,81 @@ gallery: true
 ---
 
 <div class="container">
+  <h2 class="mb-3">{{ page.title }}</h2>
 
-	<h2 class="mb-3">{{ page.title }}</h2>
+  <div class="mb-5">
+    <a href="{{ '/threejs-intro' | absolute_url }}" class="btn btn-primary">
+      <i class="fas fa-external-link-alt me-1"></i>
+      Presentation Slides
+    </a>
+  </div>
 
-	<div class="mb-5">
-		<a href="{{ "/threejs-intro" | absolute_url }}" class="btn btn-primary">
-			<i class="fas fa-external-link-alt me-1"></i> Presentation Slides
-		</a>
-	</div>
+  <div class="row">
+    <div class="col-lg-6">
+      <a href="{{ '/threejs-intro' | absolute_url }}" class="d-block mb-5">
+        <img
+          src="images/threejs-intro.png"
+          class="img-fluid"
+          style="border: 1px solid #aaa"
+          alt="Intro to WebGL with Three.js"
+        />
+      </a>
 
-	<div class="row">
-		<div class="col-lg-6">
+      <div class="row gallery my-5">
+        <div class="col-4">
+          <a class="card mb-3" href="images/front-porch3.jpg" title="Granada Theater in Dallas, TX">
+            <img class="card-img-top" src="images/front-porch3.jpg" alt="Front Porch Conference 2014" />
+          </a>
+        </div>
+        <div class="col-4">
+          <a class="card mb-3" href="images/front-porch1.jpg" title="Front Porch Conference 2014">
+            <img class="card-img-top" src="images/front-porch1-thumb.jpg" alt="Front Porch Conference 2014" />
+          </a>
+        </div>
+        <div class="col-4">
+          <a class="card mb-3" href="images/front-porch2.jpg" title="Front Porch Conference 2014">
+            <img class="card-img-top" src="images/front-porch2.jpg" alt="Front Porch Conference 2014" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 offset-lg-1">
+      <p>
+        Learn the basics of the popular 3D javascript library, Three.js. This presentation covers general 3D concepts
+        and relates them back to common features available within the Three.js API. Step through the code for a simple
+        scene with geometry, materials, lighting, and more, while exploring the options and parameters for each step
+        along the way.
+      </p>
 
-			<a href="{{ "/threejs-intro" | absolute_url }}" class="d-block mb-5">
-				<img src="images/threejs-intro.png" class="img-fluid" style="border: 1px solid #aaa;" alt="Intro to WebGL with Three.js">
-			</a>
+      <p>
+        Created in 2014 for
+        <a href="http://frontporch.io/">Front Porch</a>
+        , a front end web developer conference in Dallas, Texas.
+      </p>
 
-			<div class="row gallery my-5">
-				<div class="col-4">
-					<a class="card mb-3" href="images/front-porch3.jpg" title="Granada Theater in Dallas, TX">
-						<img class="card-img-top" src="images/front-porch3.jpg" alt="Front Porch Conference 2014">
-					</a>
-				</div>
-				<div class="col-4">
-					<a class="card mb-3" href="images/front-porch1.jpg" title="Front Porch Conference 2014">
-						<img class="card-img-top" src="images/front-porch1-thumb.jpg" alt="Front Porch Conference 2014">
-					</a>
-				</div>
-				<div class="col-4">
-					<a class="card mb-3" href="images/front-porch2.jpg" title="Front Porch Conference 2014">
-						<img class="card-img-top" src="images/front-porch2.jpg" alt="Front Porch Conference 2014">
-					</a>
-				</div>
-			</div>
-
-		</div>
-		<div class="col-lg-5 offset-lg-1">
-
-			<p>Learn the basics of the popular 3D javascript library, Three.js. This presentation covers general 3D concepts and relates them back to common features available within the Three.js API. Step through the code for a simple scene with geometry, materials, lighting, and more, while exploring the options and parameters for each step along the way.</p>
-
-			<p>Created in 2014 for <a href="http://frontporch.io/">Front Porch</a>, a front end web developer conference in Dallas, Texas.</p>
-
-			<!-- <p>At the time, WebGL still felt relatively new to both me and other front end devs I knew. When I was first getting into Three.js in 2012, there wasn't much documentation, and I learned a lot by reverse engineering Three.js examples. My goal for this presentation was to teach devs without any 3D experience how to get started with Three.js, quickly explain 3D graphics fundamentals in the context of Three.js and front end web development, and break things down into simple terms that would be easy to understand, supported by visual examples and code snippets. I also needed to condense the information enough to fit it within the 20 minute time limit for the conference while still being digestable and entertaining. While I had seen a few Three.js presentations prior to making mine, <a href="http://acko.net/">Steven Witten</a>'s presentation, <a href="https://acko.net/files/fullfrontal/fullfrontal/wdcode/online.html">Making things with Maths</a>, was the biggest inspiration for me. After researching and experimenting with a few javascript presentation libraries, I ended up using the same one Steven used, <a href="http://imakewebthings.com/deck.js">deck.js</a>. Use the "m" key to open the menu for quick navigation between slides. I also used the Gamepad API to navigate the slides with the D-pad and left and right bumpers and triggers on a wireless XBox controller.</p> -->
-
-		</div>
-	</div>
-
-
-
+      <!-- <p>
+				At the time, WebGL still felt relatively new to both me and other front end devs I
+				knew. When I was first getting into Three.js in 2012, there wasn't much
+				documentation, and I learned a lot by reverse engineering Three.js examples. My goal
+				for this presentation was to teach devs without any 3D experience how to get started
+				with Three.js, quickly explain 3D graphics fundamentals in the context of Three.js
+				and front end web development, and break things down into simple terms that would be
+				easy to understand, supported by visual examples and code snippets. I also needed to
+				condense the information enough to fit it within the 20 minute time limit for the
+				conference while still being digestable and entertaining. While I had seen a few
+				Three.js presentations prior to making mine,
+				<a href="http://acko.net/">Steven Witten</a>
+				's presentation,
+				<a href="https://acko.net/files/fullfrontal/fullfrontal/wdcode/online.html">
+					Making things with Maths
+				</a>
+				, was the biggest inspiration for me. After researching and experimenting with a few
+				javascript presentation libraries, I ended up using the same one Steven used,
+				<a href="http://imakewebthings.com/deck.js">deck.js</a>
+				. Use the "m" key to open the menu for quick navigation between slides. I also used
+				the Gamepad API to navigate the slides with the D-pad and left and right bumpers and
+				triggers on a wireless XBox controller.
+			</p> -->
+    </div>
+  </div>
 </div>
