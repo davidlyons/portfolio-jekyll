@@ -16,24 +16,23 @@
 title: David Lyons
 email: david@davidlyons.dev
 description: 3D Artist / Front End Web Dev
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://davidlyons.dev" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '' # the subpath of your site, e.g. /blog
+url: 'https://davidlyons.dev' # the base hostname & protocol for your site, e.g. http://example.com
 
 linkedin: davidxlyons
 twitter: davidxlyons
 instagram: davidxlyons
 github: davidlyons
 codepen: davidlyons
-googleanalytics: UA-113315813-1
-fbappid: "323143574923402"
+googleanalytics: G-WTY198QNED
+fbappid: '323143574923402'
 
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-      type: "pages"
+  - scope:
+      path: '' # an empty string here means all files in the project
+      type: 'pages'
     values:
-      layout: "default"
+      layout: 'default'
 
 theme:
 
@@ -51,4 +50,4 @@ exclude:
   - readme.md
   - Gruntfile.js
   - package.json
-  - "*.psd"
+  - '*.psd'
