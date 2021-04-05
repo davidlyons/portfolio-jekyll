@@ -19,22 +19,21 @@ $escaped-characters: (
 
 html {
   font-size: 0.94rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  // fix for magnific pop up pushing body to the left
+  &.lightbox {
+    margin-right: 17px;
+  }
 }
 
 body {
   line-height: 1.7;
-  overflow-y: scroll;
-  overflow-x: hidden;
   background: #2a2a2a;
   color: #ccc;
-
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.2px;
-
-  // fix for magnific pop up pushing body to the left
-  &.lightbox {
-    overflow-y: auto;
-  }
 }
 
 // prettier-ignore
@@ -71,18 +70,49 @@ a.card {
   }
 }
 
-.home {
-  a.card {
-    font-weight: bold;
-    transition: background-color 200ms, color 200ms, box-shadow 200ms;
-    color: #ccc;
+//  ----------------------------------
+
+.home-grid {
+  a {
+    border-radius: 4px;
+    overflow: hidden;
+
+    color: rgba(#fff, 0.8);
+    transition: none;
 
     &:hover {
-      color: $blue;
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
     }
   }
 }
+
+.thumb-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: rgba(#000, 0.6);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+}
+
+.thumb-heading {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.thumb-text {
+  line-height: 1.2;
+}
+
+//  ----------------------------------
 
 .border {
   border: 1px solid #545454 !important;
