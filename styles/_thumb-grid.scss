@@ -25,7 +25,7 @@
 
   a {
     opacity: 0.75;
-    transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out, color 200ms ease-in-out;
 
     &:hover {
       opacity: 1;
