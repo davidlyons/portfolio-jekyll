@@ -8,22 +8,18 @@
     text-transform: uppercase;
     font-size: inherit;
     line-height: inherit;
-
-    @media (min-width: 768px) {
-      text-align: right;
-    }
+    letter-spacing: 1.5px;
   }
 
   .list-unstyled {
     columns: 2;
+  }
 
-    @media (min-width: 768px) {
-      columns: 3;
-    }
-
-    @media (min-width: 992px) {
-      columns: 4;
-    }
+  small {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    opacity: 0.7;
   }
 
   [data-bs-toggle='collapse'] {
@@ -33,6 +29,7 @@
     padding: 10px 25px 10px 0;
     opacity: 0.7;
     transition: opacity 200ms;
+    line-height: 1.5;
 
     &:hover {
       opacity: 1;
@@ -62,10 +59,6 @@
     ul {
       margin: 15px 0 0;
       padding-bottom: 30px;
-    }
-
-    h3 {
-      margin-top: 10px;
     }
   }
 }
