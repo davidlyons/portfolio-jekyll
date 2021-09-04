@@ -111,6 +111,15 @@ a.card {
   line-height: 1.2;
 }
 
+.thumb-overlay-sm {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+
+  .thumb-heading {
+    font-size: 0.9rem;
+  }
+}
+
 //  ----------------------------------
 
 .border {
