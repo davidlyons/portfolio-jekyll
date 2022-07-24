@@ -10,24 +10,23 @@
     <div class="ms-sm-auto">
       <nav class="nav nav-pills justify-content-center" role="navigation">
         <ul class="nav">
-            <a
-              class="nav-link {% if page.url == '/' or page.url contains 'projects' %}active{% endif %}"
-              href="{{ '/' | relative_url }}"
-            >
-              Work
-            </a>
-            <a class="nav-link {% if page.title == 'About' %}active{% endif %}" href="{{ '/about.html' | relative_url }}">
-              About
-            </a>
-          </li>
-            <a
-              class="nav-link {% if page.title == 'Resume' %}active{% endif %}" href="{{ '/resume.html' | relative_url }}"
-            >
-              Resume
-            </a>
+          <a
+            class="nav-link {% if page.url == '/' or page.url contains 'projects' %}active{% endif %}"
+            href="{{ '/' | relative_url }}"
+          >
+            Work
+          </a>
+          <a class="nav-link {% if page.title == 'About' %}active{% endif %}" href="{{ '/about.html' | relative_url }}">
+            About
+          </a>
+          <a
+            class="nav-link {% if page.title == 'Resume' %}active{% endif %}"
+            href="{{ '/resume.html' | relative_url }}"
+          >
+            Resume
+          </a>
         </ul>
       </nav>
     </div>
-
   </div>
 </header>
