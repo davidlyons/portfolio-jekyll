@@ -59,6 +59,11 @@ header {
   &:hover {
     color: $blue;
   }
+
+  // for 4 nav-links
+  // @media (max-width: 575px) {
+  //   width: 50%;
+  // }
 }
 
 .nav-pills .nav-link.active,

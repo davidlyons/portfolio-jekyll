@@ -2,7 +2,7 @@
 
 (function () {
   var bgColor = 0x333333;
-  var wireColor = 0x444444;
+  var wireColor = 0x555555;
   var scene = new THREE.Scene();
   scene.background = new THREE.Color(bgColor);
   var header = document.querySelector('header');
