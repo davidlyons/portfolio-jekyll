@@ -1,5 +1,5 @@
 .resume {
-  .row {
+  > .row {
     margin-top: 40px;
     margin-bottom: 40px;
   }
@@ -12,7 +12,7 @@
   }
 
   .list-unstyled {
-    columns: 2;
+    margin-bottom: 35px;
   }
 
   small {

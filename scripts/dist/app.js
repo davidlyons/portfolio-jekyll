@@ -16,34 +16,36 @@
   renderer.setSize(width, height);
   container.appendChild(renderer.domElement);
   var camera = new THREE.PerspectiveCamera(60, width / height, 0.01, 1000);
-  camera.position.set(0, 0, 2.4);
-  var aLight = new THREE.AmbientLight(0x080808);
-  scene.add(aLight);
-  var dLight = new THREE.DirectionalLight(0xffffff, 1);
-  dLight.position.set(1, 1, 1);
-  scene.add(dLight);
-  var dLight = new THREE.DirectionalLight(0xffffff, 0.4);
-  dLight.position.set(-1, -0.25, 0.25);
-  scene.add(dLight);
-  var pLight = new THREE.PointLight(0x1ac6ff, 0.8, 10);
-  pLight.position.set(1, 0.5, 0.5);
-  scene.add(pLight); // -----------------------------------------------------------------
+  camera.position.set(0, 0, 2.4); // var aLight = new THREE.AmbientLight(0x080808);
+  // scene.add(aLight);
+  // var dLight = new THREE.DirectionalLight(0xffffff, 1);
+  // dLight.position.set(1, 1, 1);
+  // scene.add(dLight);
+  // var dLight = new THREE.DirectionalLight(0xffffff, 0.4);
+  // dLight.position.set(-1, -0.25, 0.25);
+  // scene.add(dLight);
+  // var pLight = new THREE.PointLight(0x1ac6ff, 0.8, 10);
+  // pLight.position.set(1, 0.5, 0.5);
+  // scene.add(pLight);
+  // -----------------------------------------------------------------
 
-  var cube = new THREE.Group();
-  var cubeGeo = new THREE.IcosahedronBufferGeometry(0.8, 0);
-  var wire = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
+  var group = new THREE.Group();
+  var geo = new THREE.IcosahedronBufferGeometry(0.8, 0);
+  var wireMat = new THREE.MeshBasicMaterial({
     color: wireColor,
     wireframe: true
-  }));
-  var solid = new THREE.Mesh(cubeGeo, new THREE.MeshBasicMaterial({
+  });
+  var solidMat = new THREE.MeshBasicMaterial({
     color: bgColor
-  }));
-  cube.add(wire);
-  cube.add(solid);
-  scene.add(cube); // -----------------------------------------------------------------
+  });
+  var wireMesh = new THREE.Mesh(geo, wireMat);
+  var solidMesh = new THREE.Mesh(geo, solidMat);
+  group.add(wireMesh);
+  group.add(solidMesh);
+  scene.add(group); // -----------------------------------------------------------------
 
   var mouse = new THREE.Vector2();
-  var cubeTarget = new THREE.Euler();
+  var groupTarget = new THREE.Euler();
   var xRange = THREE.Math.degToRad(90);
   var yRange = THREE.Math.degToRad(180);
   header.addEventListener('mousemove', mousemove, false);
@@ -53,8 +55,8 @@
     var rect = header.getBoundingClientRect();
     mouse.x = (e.clientX - rect.left) / rect.width * 2 - 1;
     mouse.y = (e.clientY - rect.top) / rect.height * -2 + 1;
-    cubeTarget.y = mouse.x * yRange;
-    cubeTarget.x = -mouse.y * xRange;
+    groupTarget.y = mouse.x * yRange;
+    groupTarget.x = -mouse.y * xRange;
   } // window.addEventListener( 'resize', resize, false );
   // function resize() {
   // 	camera.aspect = width / height;
@@ -67,8 +69,8 @@
 
   function loop() {
     if (getComputedStyle(renderer.domElement).display == 'none') return;
-    lerp(cube.rotation, 'x', cubeTarget.x);
-    lerp(cube.rotation, 'y', cubeTarget.y);
+    lerp(group.rotation, 'x', groupTarget.x);
+    lerp(group.rotation, 'y', groupTarget.y);
     renderer.render(scene, camera);
   }
 
