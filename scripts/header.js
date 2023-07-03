@@ -38,7 +38,7 @@
 
   var group = new THREE.Group();
 
-  var geo = new THREE.IcosahedronBufferGeometry(0.8, 0);
+  var geo = new THREE.IcosahedronGeometry(0.8, 0);
 
   var wireMat = new THREE.MeshBasicMaterial({
     color: wireColor,
@@ -63,8 +63,8 @@
 
   var groupTarget = new THREE.Euler();
 
-  var xRange = THREE.Math.degToRad(90);
-  var yRange = THREE.Math.degToRad(180);
+  var xRange = THREE.MathUtils.degToRad(90);
+  var yRange = THREE.MathUtils.degToRad(180);
 
   header.addEventListener('mousemove', mousemove, false);
   function mousemove(e) {
