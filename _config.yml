@@ -16,8 +16,8 @@
 title: David Lyons
 email: david@davidlyons.dev
 description: 3D Artist / Front End Web Dev
-baseurl: '' # the subpath of your site, e.g. /blog
-url: 'https://davidlyons.dev/portfolio-jekyll' # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '/portfolio-jekyll' # the subpath of your site, e.g. /blog
+url: 'https://davidlyons.dev' # the base hostname & protocol for your site, e.g. http://example.com
 
 linkedin: davidxlyons
 twitter: davidxlyons
